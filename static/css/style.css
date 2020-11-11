@@ -1215,7 +1215,6 @@ Version:1.0
 
 .hero-slider .single-slider {
 	height: auto;
-	/* background-image: url('https://images-na.ssl-images-amazon.com/images/I/81kCyw2FHVL._SL1500_.jpg'); */
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -1226,6 +1225,7 @@ Version:1.0
     -ms-filter: blur(3px);
     filter: blur(3px)
 }
+
 .hero-slider .text-inner {
 	
 }

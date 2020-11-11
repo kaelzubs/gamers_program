@@ -30,7 +30,10 @@ SECRET_KEY = '5krp5uw0_5j#t0b#bg8kxre3qx%&l#pjn1j0(_w-qik7!f3obq'
 DEBUG = False
 
 if DEBUG is False:
-   ALLOWED_HOSTS = ['*']
+   ALLOWED_HOSTS = [
+       '*',
+       'https://kaelzubs.pythonanywhere.com',
+   ]
 
 if DEBUG is True:
     ALLOWED_HOSTS = []

@@ -1,0 +1,24 @@
+{% load static %}
+<!-- Start Small Banner  -->
+<section class="small-banner section">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Single Banner  -->
+            {% for q in tquery %}
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="single-banner">
+                    <img src="{{ q.timage }}" alt="#">
+                    <a href="#">Shop Now</a>
+                </div>
+                <div class="content">
+                    <h3>{{ q.ttitle }}</h3>
+                    <span>{{ q.tprice }}</span>
+                    
+                </div>
+            </div>
+            {% endfor %}
+            <!-- /End Single Banner  -->
+        </div>
+    </div>
+</section>
+<!-- End Small Banner -->

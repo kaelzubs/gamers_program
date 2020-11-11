@@ -1,0 +1,43 @@
+{% load static %}
+<!-- Start Most Popular -->
+<div class="product-area most-popular section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-title">
+                    <h2>Trending in Video Games</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="owl-carousel popular-slider">
+                    <!-- Start Single Product -->
+                    {% for q in pquery %}
+                    <div class="single-product" style="width: 200px">
+                        <div class="product-img" >
+                            <a href="{{ q.tlink }}" >
+                                <img class="default-img" src="{{ q.timage }}" alt="#">
+                                <img class="hover-img" src="{{ q.timage }}" alt="#">
+                            </a>
+                            <div class="button-head">
+                                <div class="product-action-2">
+                                    <a title="Add to cart" href="{{ q.tlink }}">Check Out</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <h3><a href="{{ q.tlink }}">{{ q.ttitle}}</a></h3>
+                            <div class="product-price">
+                                <span>{{ q.tprice }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <!-- End Single Product -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Most Popular Area -->

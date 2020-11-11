@@ -31,7 +31,8 @@ DEBUG = False
 
 if DEBUG is False:
    ALLOWED_HOSTS = [
-       'https://kaelzubs.pythonanywhere.com',
+       '*',
+       'kaelzubs.pythonanywhere.com',
    ]
 
 if DEBUG is True:

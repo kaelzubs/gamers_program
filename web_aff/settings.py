@@ -137,16 +137,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-MEDIA_URL = '/media/'
-
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 VENV_PATH = os.path.dirname(os.path.join(BASE_DIR))
 
 STATIC_ROOT = os.path.join(VENV_PATH, 'staticfiles')
-MEDIA_ROOT = os.path.join(VENV_PATH,  'media')
-
-STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-	'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-)

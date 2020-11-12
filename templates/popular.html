@@ -14,22 +14,22 @@
                 <div class="owl-carousel popular-slider">
                     <!-- Start Single Product -->
                     {% for q in pquery %}
-                    <div class="single-product" style="width: 200px">
-                        <div class="product-img" >
-                            <a href="{{ q.tlink }}" >
-                                <img class="default-img" src="{{ q.timage }}" alt="#">
-                                <img class="hover-img" src="{{ q.timage }}" alt="#">
+                    <div class="single-product">
+                        <div class="product-img">
+                            <a href="{{ q.link }}">
+                                <img class="default-img" src="{{ q.image }}" alt="#">
+                                <img class="hover-img" src="{{ q.image }}" alt="#">
                             </a>
                             <div class="button-head">
                                 <div class="product-action-2">
-                                    <a title="Add to cart" href="{{ q.tlink }}">Check Out</a>
+                                    <a title="Add to cart" href="{{ q.link }}">Check Out</a>
                                 </div>
                             </div>
                         </div>
                         <div class="product-content">
-                            <h3><a href="{{ q.tlink }}">{{ q.ttitle}}</a></h3>
+                            <h3><a href="{{ q.link }}">{{ q.title}}</a></h3>
                             <div class="product-price">
-                                <span>{{ q.tprice }}</span>
+                                <span>{{ q.price }}</span>
                             </div>
                         </div>
                     </div>

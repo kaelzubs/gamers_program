@@ -80,35 +80,35 @@ def secondone():
 secondone()
 
 
-def thirdone():        
-    # Create your views here.
-    headers = {"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0", "Accept-Encoding":"gzip, deflate", "Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", "DNT":"1","Connection":"close", "Upgrade-Insecure-Requests":"1"}
-    url = 'https://www.amazon.com/s?i=videogames-intl-ship&bbn=16225016011&rh=n%3A%2116225016011%2Cp_36%3A-3000&pd_rd_r=4beb8828-9bcf-406b-b969-d5089678ff19&pd_rd_w=U61z8&pd_rd_wg=oaEKa&pf_rd_p=1f552c7a-1af2-4608-bc6f-ba06ca3c43ac&pf_rd_r=DYSYW5SC4JD09N33K5RC&qid=1570809434&rnid=386453011'
-    response = requests.get(url, headers=headers)
-    soup = BeautifulSoup(response.content, features='lxml')
-    # with open('file.html', 'w') as file:
-    #     file.write("%s" % soup)
-    images = soup.find_all(class_="s-image")
-    prices = soup.find_all(class_="a-price")[0]
-    titles = soup.find_all(class_="a-size-mini a-spacing-none a-color-base s-line-clamp-2")
+# def thirdone():        
+#     # Create your views here.
+#     headers = {"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0", "Accept-Encoding":"gzip, deflate", "Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", "DNT":"1","Connection":"close", "Upgrade-Insecure-Requests":"1"}
+#     url = 'https://www.amazon.com/s?i=videogames-intl-ship&bbn=16225016011&rh=n%3A%2116225016011%2Cp_36%3A-3000&pd_rd_r=4beb8828-9bcf-406b-b969-d5089678ff19&pd_rd_w=U61z8&pd_rd_wg=oaEKa&pf_rd_p=1f552c7a-1af2-4608-bc6f-ba06ca3c43ac&pf_rd_r=DYSYW5SC4JD09N33K5RC&qid=1570809434&rnid=386453011'
+#     response = requests.get(url, headers=headers)
+#     soup = BeautifulSoup(response.content, features='lxml')
+#     # with open('file.html', 'w') as file:
+#     #     file.write("%s" % soup)
+#     images = soup.find_all(class_="s-image")
+#     prices = soup.find_all(class_="a-price")[0]
+#     titles = soup.find_all(class_="a-size-mini a-spacing-none a-color-base s-line-clamp-2")
    
-    img_arr = [img['src'] for img in images]
-    title_arr = [title.get_text() for title in titles]
-    pricearr = [p.get_text() for p in prices]
+#     img_arr = [img['src'] for img in images]
+#     title_arr = [title.get_text() for title in titles]
+#     pricearr = [p.get_text() for p in prices]
 
-    for img, title, priz in zip(img_arr, title_arr, pricearr):
-        if not RelatedModel.objects.filter(
-            rtitle=title,
-            rimage=img,
-            rprice=priz
-        ):
-            RelatedModel.objects.create(
-                rtitle=title,
-                rimage=img,
-                rprice=priz,
-            )
+#     for img, title, priz in zip(img_arr, title_arr, pricearr):
+#         if not RelatedModel.objects.filter(
+#             rtitle=title,
+#             rimage=img,
+#             rprice=priz
+#         ):
+#             RelatedModel.objects.create(
+#                 rtitle=title,
+#                 rimage=img,
+#                 rprice=priz,
+#             )
         
-thirdone()
+# thirdone()
 
 
 def home_view(request):

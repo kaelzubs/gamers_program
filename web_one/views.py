@@ -113,13 +113,13 @@ from .models import HomeModel, TrendModel, RelatedModel
 
 def home_view(request):
     query = HomeModel.objects.all()[:24]
-    llquery = HomeModel.objects.all()[15:20]
-    lquery = HomeModel.objects.all()[10:15]
+    llquery = HomeModel.objects.all()[15:22]
+    lquery = HomeModel.objects.all()[10:17]
     mini = TrendModel.objects.all()[2:4]
-    pquery = TrendModel.objects.all()
+    pquery = HomeModel.objects.all()
     tquery = TrendModel.objects.all()[1:4]
     rquery = RelatedModel.objects.all()
-    ttquery = TrendModel.objects.all()[3:7]
+    ttquery = TrendModel.objects.all()[0:6]
     return render(request, 'base.html', {
         'query': query,
         'tquery': tquery,

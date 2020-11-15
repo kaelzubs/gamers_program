@@ -37,7 +37,7 @@ if DEBUG is False:
    ]
 
 if DEBUG is True:
-    ALLOWED_HOSTS = []
+    ALLOWED_HOSTS = ['localhost']
 
 
 # Application definition

@@ -2,12 +2,8 @@ from bs4 import BeautifulSoup
 from django.db.models import query
 from django.db.models.fields import files
 import requests
-from django.shortcuts import render, render_to_response
 from requests.api import request
 from .models import HomeModel, TrendModel, RelatedModel
-
-from django.http
-
 
 from django.contrib import sitemaps
 from django.urls import reverse
@@ -218,7 +214,7 @@ def handler404(request, template_name="error_404.html"):
 
 
 def handler500(request, template_name="error_500.html"):
-    render_to_response
+
     return render(request, template_name, status=500)
 
 

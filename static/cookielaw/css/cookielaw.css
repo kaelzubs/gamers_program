@@ -1,0 +1,32 @@
+{% load i18n %}
+{% load static %}
+
+
+#cookie_main {
+    background-color: snow;
+    padding: 15px;
+}
+
+.close {
+    font-size: 18px;
+}
+
+.h5 {
+    font-weight: bold;
+}
+
+
+#CookielawBanner .container {
+    position: fixed;
+    bottom: 50px;
+    left: -15%;
+    right: -15%;
+    width: 90%;
+    align-items: center;
+    justify-content: space-between;
+    background-color: black;
+    opacity: .8;
+    color: snow;
+    border-radius: 5px;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}

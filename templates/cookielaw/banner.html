@@ -1,0 +1,16 @@
+{% load i18n %}
+{% load static %}
+
+<div id="CookielawBanner">
+    <div class="container">
+        <div>
+            <h6 class="h5 mt-2">{% trans "COOKIE_INFO_HEADER" %}<a href="javascript:Cookielaw.createCookielawCookie();" class="close btn btn-danger mr-2">&times;</a></h6>
+            <hr>
+        </div>
+        <p>
+            {% trans "COOKIE_INFO_PARA" %}
+        </p>
+        <a class="btn btn-success pull-left mb-4" href="{% url 'cookie-list' %}">How to configure</a>
+        <a class="btn btn-primary pull-right mb-4 mr-2" href="javascript:Cookielaw.createCookielawCookie();">{% trans "COOKIE_INFO_OK" %}</a>
+    </div>
+</div>

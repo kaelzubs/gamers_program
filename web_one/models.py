@@ -12,6 +12,7 @@ class HomeModel(models.Model):
     def __str__(self):
         return self.title
     
+    
 
 class TrendModel(models.Model):
     ttitle = models.CharField(max_length=120)

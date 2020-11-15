@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 from django.db.models import query
 from django.db.models.fields import files
 import requests
+from django.shortcuts import render
 from requests.api import request
 from .models import HomeModel, TrendModel, RelatedModel
 

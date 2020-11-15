@@ -2,9 +2,12 @@ from bs4 import BeautifulSoup
 from django.db.models import query
 from django.db.models.fields import files
 import requests
-from django.shortcuts import render
+from django.shortcuts import render, render_to_response
 from requests.api import request
 from .models import HomeModel, TrendModel, RelatedModel
+
+from django.http
+
 
 from django.contrib import sitemaps
 from django.urls import reverse
@@ -211,12 +214,12 @@ def disclaimer_view(request):
 
 def handler404(request, template_name="error_404.html"):
     
-    return render(request, template_name)
+    return render(request, template_name, status=404)
 
 
 def handler500(request, template_name="error_500.html"):
-    
-    return render(request, template_name)
+    render_to_response
+    return render(request, template_name, status=500)
 
 
 class StaticViewSitemap(sitemaps.Sitemap):

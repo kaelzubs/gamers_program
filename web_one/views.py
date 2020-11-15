@@ -1,7 +1,7 @@
-# from bs4 import BeautifulSoup
-# from django.db.models import query
-# from django.db.models.fields import files
-# import requests
+from bs4 import BeautifulSoup
+from django.db.models import query
+from django.db.models.fields import files
+import requests
 from django.shortcuts import render
 from requests.api import request
 from .models import HomeModel, TrendModel, RelatedModel
@@ -9,19 +9,20 @@ from .models import HomeModel, TrendModel, RelatedModel
 from django.contrib import sitemaps
 from django.urls import reverse
 
-# from .secretKey.config import keys
+from .secretKey.config import keys
 # import libraries
-# from bs4 import BeautifulSoup
-# from selenium import webdriver
-# from selenium.webdriver.support.ui import WebDriverWait
-# from selenium.webdriver.support import expected_conditions as EC
-# from selenium.webdriver.common.by import By
-# from selenium.common.exceptions import TimeoutException
-# import time, ssl
+from bs4 import BeautifulSoup
+from selenium import webdriver
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+from selenium.common.exceptions import TimeoutException
+import time, ssl
 # import pandas as pd
 
 
             
+
 # def gamelist():
     
 #     # For ignoring SSL certificate errors
@@ -208,7 +209,7 @@ def disclaimer_view(request):
 
 
 
-def handler404(request, exception, template_name="error_404.html"):
+def handler404(request, template_name="error_404.html"):
     
     return render(request, template_name)
 

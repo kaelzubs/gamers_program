@@ -28,16 +28,15 @@ SECRET_KEY = '5krp5uw0_5j#t0b#bg8kxre3qx%&l#pjn1j0(_w-qik7!f3obq'
 # DEBUG = True
 # ALLOWED_HOSTS = []
 
-DEBUG = True
+DEBUG = False
 
 if DEBUG is False:
    ALLOWED_HOSTS = [
        '*',
-       'kaelzubs.pythonanywhere.com',
    ]
 
 if DEBUG is True:
-    ALLOWED_HOSTS = ['localhost', 'kaelzubs.pythonanywhere.com']
+    ALLOWED_HOSTS = ['kaelzubs.pythonanywhere.com']
 
 
 # Application definition
@@ -49,7 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+
     'web_one',
     'newsletter',
     'cookielaw',

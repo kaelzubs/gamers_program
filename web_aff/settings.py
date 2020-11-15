@@ -152,16 +152,16 @@ STATIC_ROOT = os.path.join(VENV_PATH, 'staticfiles')
 
 SITE_ID = 1
 
-MAILCHIMP_API_KEY = '9e65f2dbcf48085a4994384e087290d8-us5'
-MAILCHIMP_DATA_CENTER = 'us5'
-MAILCHIMP_EMAIL_LIST_ID = '73164ddb1e'
+# MAILCHIMP_API_KEY = '9e65f2dbcf48085a4994384e087290d8-us5'
+# MAILCHIMP_DATA_CENTER = 'us5'
+# MAILCHIMP_EMAIL_LIST_ID = '73164ddb1e'
 
-EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER = 'kaelzubs'
-EMAIL_HOST_PASSWORD = '1Angrywizard-'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-ACCOUNT_EMAIL_SUBJECT_PREFIX = 'Email recieved from epredictz.com'
-DEFAULT_FROM_EMAIL = 'donmart4u@gmail.com'
+# EMAIL_HOST = 'smtp.sendgrid.net'
+# EMAIL_HOST_USER = 'kaelzubs'
+# EMAIL_HOST_PASSWORD = '1Angrywizard-'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# ACCOUNT_EMAIL_SUBJECT_PREFIX = 'Email recieved from epredictz.com'
+# DEFAULT_FROM_EMAIL = 'donmart4u@gmail.com'
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

@@ -22,7 +22,6 @@ import time, ssl
 
 
             
-
 # def gamelist():
     
 #     # For ignoring SSL certificate errors

@@ -15,9 +15,25 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls import handler404, handler500
+from django.views.static import serve
+from django.conf import settings
+from django.conf.urls.static import static
+from web_one import views as web_views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('web_one.urls'))
+    path('', include('web_one.urls')),
+    path('robots.txt/', include('robots.urls')),
+    path('cookie-', include('cookielaw.urls')),
+    path('subscription-', include('newsletter.urls')),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, serve, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, serve, document_root=settings.MEDIA_ROOT)
+
+
+handler404 = web_views.handler404
+handler500 = web_views.handler500

@@ -9,8 +9,5 @@ class cookie_Page(models.Model):
     price = models.CharField(max_length=50)
     link = models.URLField()
 
-    class Meta:
-        ordering = ['-id']
-
     def __str__(self):
         return self.title

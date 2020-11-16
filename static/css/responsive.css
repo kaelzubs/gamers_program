@@ -123,11 +123,10 @@ Version:1.0
 	display:block;
 }
 .hero-slider {
-	height: 386px;
+	height: 356px;
 }
 .hero-slider img {
-	background-size: auto;
-	background-repeat: no-repeat;
+	background-size: cover;
 }
 .hero-slider .hero-text {
 	margin-top: 80px;

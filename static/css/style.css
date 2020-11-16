@@ -1214,7 +1214,7 @@ Version:1.0
 .hero-slider img {
 	width: 100%;
 	height: 100%;
-	background-size: auto;
+	background-size: cover;
 }
 
 .hero-slider .single-slider {
@@ -1222,12 +1222,12 @@ Version:1.0
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	height: 510px;
-	-webkit-filter: blur(3px);
+	height: 100%;
+	/* -webkit-filter: blur(3px);
     -moz-filter: blur(3px);
     -o-filter: blur(3px);
     -ms-filter: blur(3px);
-    filter: blur(3px)
+    filter: blur(3px) */
 }
 
 .hero-slider .hero-text {

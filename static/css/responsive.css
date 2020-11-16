@@ -123,7 +123,7 @@ Version:1.0
 	display:block;
 }
 .hero-slider {
-	height: auto;
+	height: 416px;
 }
 .hero-slider .hero-text {
 	margin-top: 80px;
@@ -639,8 +639,7 @@ Version:1.0
 	margin-bottom: 10px;
 }
 .small-banner {
-	padding: 18px 0;
-	
+	padding: 18px 0;	
 }
 .small-banner .single-banner{
 	margin-bottom: 18px;

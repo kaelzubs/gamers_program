@@ -1141,7 +1141,6 @@ Version:1.0
 	width:100%;
 	z-index:999;
 }
-.header.sticky .all-category{}
 .header.sticky .all-category h3{
 	cursor:pointer;
 	
@@ -1212,6 +1211,11 @@ Version:1.0
 	background: #fff;
 	overflow: hidden;
 }
+.hero-slider img {
+	width: 100%;
+	height: 100%;
+	background-size: auto;
+}
 
 .hero-slider .single-slider {
 	height: auto;
@@ -1226,9 +1230,6 @@ Version:1.0
     filter: blur(3px)
 }
 
-.hero-slider .text-inner {
-	
-}
 .hero-slider .hero-text {
 	padding: 0 30px;
 	margin-top:100px;
@@ -1328,7 +1329,6 @@ Version:1.0
 .hero-area2 .single-slider .content .des{
 	color:#fff;
 }
-.hero-area2 .single-slider .content .button{}
 .hero-area2 .single-slider .content .button .btn {
 	padding: 9px 25px;
 	border: 2px solid #fff;
@@ -1376,7 +1376,6 @@ Version:1.0
 	right:0;
 }
 /* Hero Area 3 */
-.hero-area3{}
 .hero-area3 .big-content{
 	background-image: url('https://via.placeholder.com/850x530');
 	background-size: cover;
@@ -1403,7 +1402,6 @@ Version:1.0
 .hero-area3 .big-content .title span{
 	color:#F7941D;
 }
-.hero-area3 .big-content .des{}
 .hero-area3 .big-content .button{
 	margin-top:40px;
 	display:block;
@@ -1442,7 +1440,6 @@ Version:1.0
 .hero-area3 .small-content .title span{
 	color:#F7941D;
 }
-.hero-area3 .small-content .des{}
 .hero-area3 .small-content .button{
 	margin-top:10px;
 	display:block;
@@ -1485,7 +1482,6 @@ Version:1.0
 .hero-area4 .big-content .title span{
 	color:#F7941D;
 }
-.hero-area4 .big-content .des{}
 .hero-area4 .big-content .button{
 	margin-top:40px;
 	display:block;
@@ -1543,12 +1539,12 @@ Version:1.0
 	position:relative;
 }
 .small-banner .single-banner img{
-	-webkit-filter: blur(3px);
+	/* -webkit-filter: blur(3px);
     -moz-filter: blur(3px);
     -o-filter: blur(3px);
     -ms-filter: blur(3px);
-    filter: blur(3px);
-	height:100%;
+    filter: blur(3px); */
+	height:500px;
 	width:100%;
 	-webkit-transition:all 0.4s ease;
 	-moz-transition:all 0.4s ease;

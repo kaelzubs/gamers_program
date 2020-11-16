@@ -36,7 +36,7 @@ if DEBUG is False:
    ]
 
 if DEBUG is True:
-    ALLOWED_HOSTS = ['kaelzubs.pythonanywhere.com']
+    ALLOWED_HOSTS = ['127.0.0.1', 'kaelzubs.pythonanywhere.com']
 
 
 # Application definition

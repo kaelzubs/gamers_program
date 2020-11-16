@@ -1215,19 +1215,8 @@ Version:1.0
 	width: 100%;
 	height: 100%;
 	background-size: cover;
-}
-
-.hero-slider .single-slider {
-	height: auto;
-	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	height: 100%;
-	/* -webkit-filter: blur(3px);
-    -moz-filter: blur(3px);
-    -o-filter: blur(3px);
-    -ms-filter: blur(3px);
-    filter: blur(3px) */
 }
 
 .hero-slider .hero-text {

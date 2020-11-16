@@ -123,11 +123,9 @@ Version:1.0
 	display:block;
 }
 .hero-slider {
-	height: 356px;
+	height: 416px;
 }
-.hero-slider img {
-	background-size: cover;
-}
+
 .hero-slider .hero-text {
 	margin-top: 80px;
 }
@@ -528,9 +526,14 @@ Version:1.0
 .header .header-inner{
 	display:none 
 }
+
 .hero-slider {
-	height: 350px;
+	height: 250px;
 }
+.hero-slider img {
+	background-size: auto;
+}
+
 .hero-slider .hero-text {
 	margin-top: 60px;
 }

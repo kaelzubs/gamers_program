@@ -4,16 +4,15 @@
     <div class="container-fluid">
         <div class="row">
             <!-- Single Banner  -->
-            {% for q in tquery %}
+            {% for q in topquery %}
             <div class="col-lg-4 col-md-6 col-12">
                 <div class="single-banner">
-                    <img src="{{ q.timage }}" alt="#">
-                    <a href="#">Shop Now</a>
+                    <img src="{{ q.image }}" alt="#">
+                    <a href="{{ q.link }}">Shop Now</a>
                 </div>
                 <div class="content">
-                    <h3>{{ q.ttitle }}</h3>
-                    <span>{{ q.tprice }}</span>
-                    
+                    <h3>{{ q.title }}</h3>
+                    <span>{{ q.price }}</span>
                 </div>
             </div>
             {% endfor %}

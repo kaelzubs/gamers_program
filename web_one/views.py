@@ -58,35 +58,58 @@ import time, ssl
 #     # sleep for 30s
 #     time.sleep(30)
     
+#     title_arr = []
+#     list_title = driver.find_elements(By.TAG_NAME, 'a')
+#     for tit in list_title:
+#         title = tit.get_attribute('title')
+#         if '[' not in title:
+#             continue
+#         title_arr.append(title)
     
-#     title = driver.find_elements_by_xpath("//*[@title='Roblox Gift Card - 800 Robux [Online Game Code]']").text
     
+#     link_arr = []
+#     list_link = driver.find_elements(By.TAG_NAME, 'a')
+#     for lk in list_link:
+#         link = lk.get_attribute('href')
+#         if 'tag=kaelzubs-20' not in link:
+#             continue
+#         link_arr.append(link)
+    
+#     price_arr = []
 #     list_price = driver.find_elements_by_xpath("//*[@class='ac-product-price']")
-#     price = [p.text for p in list_price]
+#     for price in list_price:
+#         priz = price.text
+#         price_arr.append(priz)
     
-    # list_images = driver.find_elements_by_xpath("//*[@class='a-span2 product-image']")
-    # images = []
-    # for i in range(len(list_images)):
-    # # this line produces StaleElementReferenceException
-    #     WebDriverWait(driver, 30).until(EC.staleness_of(list_images[i]))
-    #     image = list_images[i].find_element_by_tag_name('img')
-    #     images.append(image.get_attribute('src'))
     
-    # print(title, price)
-    # links = []
-    # for i in results:
-    #     # this line produces StaleElementReferenceException
-    #     WebDriverWait(driver, 30).until(EC.staleness_of(results[i]))
-    #     link = results[i].get_attribute('href')
-    #     links.append(link)
-        
-    # print(links)
+#     image_arr = []
+#     list_images = driver.find_elements(By.TAG_NAME, 'img')
+#     for img in list_images:
+#         images = img.get_attribute('src')
+#         if '.jpg' not in images:
+#             if '91Vk1mS1x3L._SL500_.png' not in images:
+#                 continue
+#         image_arr.append(images)
+
     
-    # results = driver.find_elements_by_xpath("//*[@class=' co-product-list__main-cntr']//*[@class=' co-item ']//*[@class='co-product']//*[@class='co-item__title-container']//*[@class='co-product__title']")
-    # print('Number of results', len(results))
-    # driver.quit()
+#     for imag, titl, prize, linc in zip(image_arr, title_arr, price_arr, link_arr):
+#         if not HomeModel.objects.filter(
+#             title=titl,
+#             image=imag,
+#             price=prize,
+#             link=linc
+#         ):
+#             HomeModel.objects.create(
+#                 title=titl,
+#                 image=imag,
+#                 price=prize,
+#                 link=linc
+#             )
+    
+#     driver.quit()
    
 # gamelist()
+
 
 
 # def firstone():   
@@ -163,8 +186,8 @@ import time, ssl
 
 
 def home_view(request):
-    query = HomeModel.objects.all()[:24]
-    llquery = HomeModel.objects.all()[15:22]
+    query = HomeModel.objects.all()[4:]
+    topquery = HomeModel.objects.all()[:3]
     lquery = HomeModel.objects.all()[10:17]
     mini = TrendModel.objects.all()[2:4]
     pquery = HomeModel.objects.all()
@@ -173,11 +196,10 @@ def home_view(request):
     ttquery = TrendModel.objects.all()[0:6]
     return render(request, 'base.html', {
         'query': query,
-        'tquery': tquery,
+        'topquery': topquery,
         'mini': mini,
         'rquery': rquery,
         'lquery': lquery,
-        'llquery': llquery,
         'pquery': pquery,
         'ttquery': ttquery
     })

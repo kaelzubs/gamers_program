@@ -123,7 +123,7 @@ Version:1.0
 	display:block;
 }
 .hero-slider {
-	height: 416px;
+	height: auto;
 }
 .hero-slider .hero-text {
 	margin-top: 80px;

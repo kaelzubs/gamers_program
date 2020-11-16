@@ -528,11 +528,13 @@ Version:1.0
 }
 
 .hero-slider {
-	height: 250px;
-}
-.hero-slider img {
+	max-height: 350px;
 	background-size: auto;
 }
+
+/* .hero-slider img {
+	
+} */
 
 .hero-slider .hero-text {
 	margin-top: 60px;

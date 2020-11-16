@@ -125,6 +125,10 @@ Version:1.0
 .hero-slider {
 	height: 416px;
 }
+.hero-slider img {
+	background-size: cover;
+	background-repeat: no-repeat;
+}
 .hero-slider .hero-text {
 	margin-top: 80px;
 }

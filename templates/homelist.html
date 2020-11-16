@@ -12,20 +12,20 @@
                     </div>
                 </div>
                 <!-- Start Single List  -->
-                {% for q in ttquery %}
+                {% for q in salequery %}
                 <div class="single-list">
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-12">
                             <div class="list-image overlay">
-                                <img src="{{ q.timage }}" alt="#">
-                                <a href="{{ q.tlink }}" class="buy"><i class="fa fa-shopping-bag"></i></a>
+                                <img src="{{ q.rimage }}" alt="#">
+                                <a href="{{ q.rlink }}" class="buy"><i class="fa fa-shopping-bag"></i></a>
                             </div>
                         </div>
 
                         <div class="col-lg-6 col-md-6 col-12 no-padding">
                             <div class="content">
-                                <h4 class="title"><a href="{{ q.tlink }}">{{ q.ttitle }}</a></h4>
-                                <p class="price with-discount">{{ q.tprice }}</p>
+                                <h4 class="title"><a href="{{ q.rlink }}">{{ q.rtitle }}</a></h4>
+                                <p class="price with-discount">{{ q.rprice }}</p>
                             </div>
                         </div>
                         
@@ -45,20 +45,20 @@
                     </div>
                 </div>
                 <!-- Start Single List  -->
-                {% for q in lquery %}
+                {% for q in bestquery %}
                 <div class="single-list">
                     <div class="row">
                         
                         <div class="col-lg-6 col-md-6 col-12">
                             <div class="list-image overlay">
-                                <img src="{{ q.image }}" alt="#">
-                                <a href="{{ q.link }}" class="buy"><i class="fa fa-shopping-bag"></i></a>
+                                <img src="{{ q.rimage }}" alt="#">
+                                <a href="{{ q.rlink }}" class="buy"><i class="fa fa-shopping-bag"></i></a>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-12 no-padding">
                             <div class="content">
-                                <h5 class="title"><a href="{{ q.link }}">{{ q.title }}</a></h5>
-                                <p class="price with-discount">{{ q.price }}</p>
+                                <h5 class="title"><a href="{{ q.rlink }}">{{ q.rtitle }}</a></h5>
+                                <p class="price with-discount">{{ q.rprice }}</p>
                             </div>
                         </div>
                     </div>
@@ -75,19 +75,19 @@
                     </div>
                 </div>
                 <!-- Start Single List  -->
-                {% for q in llquery %}
+                {% for q in viewquery %}
                 <div class="single-list">
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-12">
                             <div class="list-image overlay">
-                                <img src="{{ q.image }}" alt="#">
-                                <a href="{{ q.link }}" class="buy"><i class="fa fa-shopping-bag"></i></a>
+                                <img src="{{ q.rimage }}" alt="#">
+                                <a href="{{ q.rlink }}" class="buy"><i class="fa fa-shopping-bag"></i></a>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-12 no-padding">
                             <div class="content">
-                                <h5 class="title"><a href="{{ q.link }}">{{ q.title }}</a></h5>
-                                <p class="price with-discount">{{ q.price }}</p>
+                                <h5 class="title"><a href="{{ q.rlink }}">{{ q.rtitle }}</a></h5>
+                                <p class="price with-discount">{{ q.rprice }}</p>
                             </div>
                         </div>
                     </div>

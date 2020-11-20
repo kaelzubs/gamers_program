@@ -11,9 +11,9 @@
         </div>
         <div class="row">
             <div class="col-12">
-                {% for qt in trendquery %}
                 <div class="owl-carousel popular-slider">
                     <!-- Start Single Product -->
+                    {% for qt in trendquery %}
                     <div class="single-product">
                         <div class="product-img">
                             <a href="{{ qt.tlink }}">
@@ -33,10 +33,9 @@
                             </div>
                         </div>
                     </div>
-                    
+                    {% endfor %}
                     <!-- End Single Product -->
                 </div>
-                {% endfor %}
             </div>
         </div>
     </div>

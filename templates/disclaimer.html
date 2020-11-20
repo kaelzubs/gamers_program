@@ -1,0 +1,50 @@
+<!doctype html>
+
+{% load static %}
+
+<html lang="en">
+
+    {% include 'head.html' %}
+
+    <body class="js">
+
+        {% include 'preloader.html' %}
+        {% include 'header.html' %}
+        {% include 'slider.html' %}
+
+        {% block content %}
+        <div class='container text-center'>
+            <div class='row'>
+                <div class='col'>
+                    <br>
+                    <h2>Terms & Conditions</h2>
+                    <br>
+                    
+                    <p>Betting Tips, predictions, analysis and statistics published on epredictz.com are our recommendations and ultimately our own opinions.</p>
+                    <p>They are not fixed or 'no lose' guaranteed predictions</p>
+                    <p>Every user of epredictz.com bets at his/her own risk.</p>
+                    <p>At epredictz.com we advise and encourage you to bet sensibly.</p>
+                    <p>Do not bet more than you can afford to lose. Hence epredictz.com would not be held responsible for the actions of its site's users and visitors.</p>
+                    <p>Any profits and losses incurred through gambling is the sole responsibility of the user. We do not grant refunds for payments made.</p>
+                    <p>Betting is illegal in some countries, or areas of countries, thus, encourage all users to comply with the governing regulations in their province. It is the responsibility of users to act in accordance with their local laws</p>
+                    <p>Reproduction and lifting of materials such as Tips, analysis and strategies on epredictz.com is prohibited.If you would like to reproduce any of the original material on the site please contact us and your request would be happily considered.</p>
+                    <p>epredictz.com does not publish sport fixtures or fixture lists, and has no intention to do so at present. To the best of our knowledge we do not breach copyright on fixtures publication on bookmakers, nor do hold any license to publish fixtures</p>
+                    <p>If you do believe that any data published on epredictz.com is in breach of copyright please contact us immediately.</p>
+                    <p>epredictz.com ensures that all information presented on its site is accurate and up to date.</p>
+                    <p>epredictz.com would not be held responsible for user's individual discretional calculations or accumulations as we provide accumulations in our Accumulator category.</p>
+                    <p>By viewing or using Predictions and Betting tips on epredictz.com website or any of our affiliate sites, pages, accounts and/or signing up on the website, you agree to be bound by and to comply with our terms and conditions</p>
+                    <p>By creating and profile signing up to use the epredictz.com you hereby agree to abide by the terms and conditions summarized therein.</p>
+                    <p>Also by signing up, you have entrusted us with your emails and subscription details, we are therefore obligated to protect the information of our users.</p>
+                </div>
+            </div>
+        </div>
+        {% endblock content %}
+        
+        
+        {% include 'newsletter.html' %}
+
+        {% include 'footer.html' %}
+        {% include 'scripts.html' %}
+
+    </body>
+</html>

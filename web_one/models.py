@@ -1,3 +1,4 @@
+from os import name
 from django.db import models
 
 # Create your models here.
@@ -32,3 +33,14 @@ class RelatedModel(models.Model):
     
     def __str__(self):
         return self.rtitle
+
+
+class ContactModel(models.Model):
+    name = models.CharField(max_length=60)
+    email = models.EmailField()
+    subject = models.CharField(max_length=150)
+    message = models.TextField()
+    phone = models.CharField(max_length=11)
+    
+    def __str__(self):
+        return self.email

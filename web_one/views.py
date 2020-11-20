@@ -2,12 +2,15 @@ from bs4 import BeautifulSoup
 from django.db.models import query
 from django.db.models.fields import files
 import requests
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from requests.api import request
 from .models import HomeModel, TrendModel, RelatedModel
-
+from newsletter.forms import EmailSignupForm
+from .forms import ContactForms
+from django.core.mail import send_mail, get_connection
 from django.contrib import sitemaps
 from django.urls import reverse
+from django.db.models import Q
 
 from .secretKey.config import keys
 # import libraries
@@ -175,7 +178,7 @@ import time, ssl
 #     for img in list_images:
 #         images = img.get_attribute('src')
 #         if '.jpg' not in images:
-#             if '91Vk1mS1x3L._SL500_.png' not in images:
+#             if 'A1juC3rz-3L._SL500_.png' not in images:
 #                 continue
 #         image_arr.append(images)
 
@@ -197,6 +200,8 @@ import time, ssl
 #     driver.quit()
    
 # gamelistonline()
+
+
 
 
 
@@ -271,13 +276,13 @@ import time, ssl
 
     
 #     for imag, titl, prize, linc in zip(image_arr, title_arr, price_arr, link_arr):
-#         if not RelatedModel.objects.filter(
+#         if not TrendModel.objects.filter(
 #             ttitle=titl,
 #             timage=imag,
 #             tprice=prize,
 #             tlink=linc
 #         ):
-#             RelatedModel.objects.create(
+#             TrendModel.objects.create(
 #                 ttitle=titl,
 #                 timage=imag,
 #                 tprice=prize,
@@ -290,56 +295,95 @@ import time, ssl
 
 
 
-
 def home_view(request):
     query = HomeModel.objects.all()[4:]
     topquery = HomeModel.objects.all()[:3]
+    medquery = HomeModel.objects.all()[:2]
+    
+    trendquery = TrendModel.objects.all()
     
     salequery = RelatedModel.objects.all()[2:7]
     bestquery = RelatedModel.objects.all()[7:13]
-    viewquery = RelatedModel.objects.all()[14:20]
+    viewquery = RelatedModel.objects.all()[14:19]
     
-    tquery = TrendModel.objects.all()[1:4]
-    rquery = RelatedModel.objects.all()
-    ttquery = TrendModel.objects.all()[0:6]
+    
+    
+    form = EmailSignupForm()
+        
     return render(request, 'base.html', {
         'query': query,
         'topquery': topquery,
         'bestquery': bestquery,
+        'trendquery': trendquery,
         'viewquery': viewquery,
         'salequery': salequery,
-        'ttquery': ttquery
+        'medquery': medquery,
+        'form': form,
     })
 
 
 def xbox_view(request):
-    return render(request, 'xbox.html')
+    form = EmailSignupForm()
+    return render(request, 'xbox.html', {'form': form})
     
 def playstation_view(request):
-    return render(request, 'playstation.html')
+    form = EmailSignupForm()
+    return render(request, 'playstation.html', {'form': form})
     
 def nintendo_view(request):
-    return render(request, 'nintendo.html')
+    form = EmailSignupForm()
+    return render(request, 'nintendo.html', {'form': form})
     
 def accessories_view(request):
-    return render(request, 'accessories.html')
+    form = EmailSignupForm()
+    return render(request, 'accessories.html', {'form': form})
     
     
 def about_view(request):
-    return render(request, 'about.html')
+    form = EmailSignupForm()
+    return render(request, 'about.html', {'form': form})
     
     
 def contact_view(request):
-    return render(request, 'contact.html')
+
+    submitted = False
+    if request.method == 'POST':
+        forms = ContactForms(request.POST or None )
+        if forms.is_valid():
+            cd = forms.cleaned_data
+            con = get_connection('django.core.mail.backends.smtp.EmailBackend')
+            send_mail(
+                cd['subject'],
+                cd['message'],
+                cd.get('email', 'noreply@gameshopa.com'),
+                ['kaelzubs@gmail.com'],
+                cd['name'],
+                cd['phone'],
+                connection=con
+            )
+            return redirect('contact_success')
+    else:
+        forms = ContactForms()
+        if 'submitted' in request.GET:
+            submitted = True
     
+    form = EmailSignupForm()
+
+    return render(request, 'contact.html', {'form': form, 'forms': forms})
     
+
+def contact_success(request):
+    form = EmailSignupForm()
+    return render(request, 'contact_success.html', {'form': form})
+
+  
 def disclaimer_view(request):
-    return render(request, 'disclaimer.html')
+    form = EmailSignupForm()
+    return render(request, 'disclaimer.html', {'form': form})
 
 
 
-def handler404(request, template_name="error_404.html"):
-    
+def handler404(request, exception, template_name="error_404.html"):
     return render(request, template_name, status=404)
 
 

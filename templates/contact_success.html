@@ -2,6 +2,7 @@
 
 {% load static %}
 
+
 <html lang="en">
 
     {% include 'head.html' %}
@@ -13,24 +14,22 @@
         {% include 'slider.html' %}
 
         {% block content %}
-        <div class="container text-center">
+        <div class="container text-center" id="csuc">
             <div class="row">
                 <div class="col">
                     <br>
-                    <h2>Oops!</h2>
-                    <h3>Server error or Error loading page. try again</h3>
-                    <h3>Thanks.</h3>
-                    <br>
+                    <h4 id="cts">Your message was submitted successfully. Thank you.</h4>
+                    <a href="{% url 'home' %}">
+                        <h6 class="success">Return To Home</h6>
+                    </a>
                 </div>
             </div>
         </div>
         {% endblock content %}
         
-
-
+        {% include 'newsletter.html' %}
         {% include 'footer.html' %}
         {% include 'scripts.html' %}
 
     </body>
 </html>
-

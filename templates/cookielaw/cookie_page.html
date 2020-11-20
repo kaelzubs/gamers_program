@@ -1,102 +1,119 @@
-{% extends 'base.html' %}
+<!doctype html>
+
 {% load static %}
 
 
-{% block content %}
-<div class="container" id="cookie_main" >
-    <div class="page-header header-title">
-        <div class="container">
-            <h1 class="title">
-                <font style="vertical-align: inherit;">
-                    <font style="vertical-align: inherit;">How to configure your cookies</font>
-                    <hr>
-                 </font>
-            </h1>
-        </div>
-    </div>
+<html lang="en">
 
-    <!-- .breadcrumb-box -->
-    <div class="container">
-        <section class="moreInfoPoints">
-            <div class="title-box principal">
-                <h3 class="title">
-                    <font style="vertical-align: inherit;">
-                        <font style="vertical-align: inherit;">You want to know more?</font>
-                    </font>
-                </h3>
+    {% include 'head.html' %}
+
+    <body class="js">
+
+        {% include 'preloader.html' %}
+        {% include 'header.html' %}
+        {% include 'slider.html' %}
+
+        {% block content %}
+        <div class="container" id="cookie_main" >
+            <div class="page-header header-title">
+                <div class="container">
+                    <h1 class="title">
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">How to configure your cookies</font>
+                            <hr>
+                        </font>
+                    </h1>
+                </div>
             </div>
-        </section>
 
-        <div class="row">
-            <div class="content col-sm-12 col-md-12">
+            <!-- .breadcrumb-box -->
+            <div class="container">
+                <section class="moreInfoPoints">
+                    <div class="title-box principal">
+                        <h3 class="title">
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">You want to know more?</font>
+                            </font>
+                        </h3>
+                    </div>
+                </section>
+
                 <div class="row">
-                    <div class="col-md-12"></div>
-                    <div class="col-sm-12 col-md-12 bottom-padding">
-                        <div class="rich-text">
-                            <p>
-                                <font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;">Likewise, APSL informs the user that it has the possibility of configuring its browser so that it is informed of the reception of cookies, being able, if it so wishes, to prevent them from being installed on its hard disk.</font>
-                                </font>
-                            </p>
-                            <p>
-                                <font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;">Below we provide the links of various browsers, through which you can make such configuration:</font>
-                                </font>
-                            </p>
+                    <div class="content col-sm-12 col-md-12">
+                        <div class="row">
+                            <div class="col-md-12"></div>
+                            <div class="col-sm-12 col-md-12 bottom-padding">
+                                <div class="rich-text">
+                                    <p>
+                                        <font style="vertical-align: inherit;">
+                                            <font style="vertical-align: inherit;">Likewise, APSL informs the user that it has the possibility of configuring its browser so that it is informed of the reception of cookies, being able, if it so wishes, to prevent them from being installed on its hard disk.</font>
+                                        </font>
+                                    </p>
+                                    <p>
+                                        <font style="vertical-align: inherit;">
+                                            <font style="vertical-align: inherit;">Below we provide the links of various browsers, through which you can make such configuration:</font>
+                                        </font>
+                                    </p>
 
-                            <ul>
-                                <li>
-                                    <a href="https://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-que-los-sitios-we">
-                                        <font style="vertical-align: inherit;">
-                                            <font style="vertical-align: inherit;">Firefox from here</font>
-                                        </font>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="http://support.google.com/chrome/bin/answer.py?hl=es&amp;answer=95647">
-                                        <font style="vertical-align: inherit;">
-                                            <font style="vertical-align: inherit;">Chrome from here</font>
-                                        </font>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="http://windows.microsoft.com/es-es/internet-explorer/delete-manage-cookies#ie=ie-10">
-                                        <font style="vertical-align: inherit;">
-                                            <font style="vertical-align: inherit;">Explorer from here</font>
-                                        </font>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="http://support.apple.com/kb/ph5042">
-                                        <font style="vertical-align: inherit;">
-                                            <font style="vertical-align: inherit;">Safari from here</font>
-                                        </font>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="http://help.opera.com/Windows/11.50/es-ES/cookies.html">
-                                        <font style="vertical-align: inherit;">
-                                            <font style="vertical-align: inherit;">It operates from here.</font>
-                                        </font>
-                                    </a>
-                                </li>
-                            </ul>
+                                    <ul>
+                                        <li>
+                                            <a href="https://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-que-los-sitios-we">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">Firefox from here</font>
+                                                </font>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="http://support.google.com/chrome/bin/answer.py?hl=es&amp;answer=95647">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">Chrome from here</font>
+                                                </font>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="http://windows.microsoft.com/es-es/internet-explorer/delete-manage-cookies#ie=ie-10">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">Explorer from here</font>
+                                                </font>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="http://support.apple.com/kb/ph5042">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">Safari from here</font>
+                                                </font>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="http://help.opera.com/Windows/11.50/es-ES/cookies.html">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">It operates from here.</font>
+                                                </font>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-box bottom-padding no-pagination">
+                    <div class="clearfix"></div>
+                    <div class="row">
+                        <div class="caroufredsel_wrapper" style="display: block; text-align: start; float: none; top: 0px; right: 0px; bottom: 0px; left: 0px; z-index: auto; margin: 0px; overflow: hidden; position: relative; width: 569px; height: 0px;">
+                            <div class="carousel no-responsive gallery" style="text-align: left; float: none; position: absolute; right: auto; bottom: auto; margin: 0px; top: 0px; left: 285px; width: 569px; height: 0px;"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        {% endblock content %}
+        
+        {% include 'newsletter.html' %}
 
-        <div class="carousel-box bottom-padding no-pagination">
-            <div class="clearfix"></div>
-            <div class="row">
-                <div class="caroufredsel_wrapper" style="display: block; text-align: start; float: none; top: 0px; right: 0px; bottom: 0px; left: 0px; z-index: auto; margin: 0px; overflow: hidden; position: relative; width: 569px; height: 0px;">
-                    <div class="carousel no-responsive gallery" style="text-align: left; float: none; position: absolute; right: auto; bottom: auto; margin: 0px; top: 0px; left: 285px; width: 569px; height: 0px;"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<br>
-<br>
-{% endblock %}
+        {% include 'footer.html' %}
+        {% include 'scripts.html' %}
+        
+    </body>
+</html>

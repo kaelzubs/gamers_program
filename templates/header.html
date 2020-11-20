@@ -15,8 +15,8 @@
                         <div class="top-search"><a href="#0"><i class="ti-search"></i></a></div>
                         <!-- Search Form -->
                         <div class="search-top">
-                            <form class="search-form">
-                                <input type="text" placeholder="Search here..." name="search">
+                            <form class="search-form" method="get" action=".">
+                                <input type="text" value="{{ request.GET.q }}" placeholder="Search here..." name="q">
                                 <button value="search" type="submit"><i class="ti-search"></i></button>
                             </form>
                         </div>
@@ -29,8 +29,8 @@
                 <div class="col-lg-8 col-md-7 col-12">
                     <div class="search-bar-top">
                         <div class="search-bar">
-                            <form>
-                                <input name="search" placeholder="Search Products Here....." type="search">
+                            <form method="get" action=".">
+                                <input name="q" value="{{ request.GET.q }}" placeholder="Search Products Here....." type="search">
                                 <button class="btnn"><i class="ti-search"></i></button>
                             </form>
                         </div>

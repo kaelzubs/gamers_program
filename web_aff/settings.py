@@ -14,9 +14,6 @@ import os
 
 from pathlib import Path
 
-from django.utils.translation import gettext_lazy as _
-
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -162,26 +159,6 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
 	'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
-
-
-LOCALE_PATHS = (
-   os.path.join(BASE_DIR, 'locale'),
-)
-
-LANGUAGES = (
-    ('ar', _('Arabic')),
-    ('en', _('English')),
-)
-
-MULTILINGUAL_LANGUAGES = (
-    "en-us",
-    "ar-ae",
-)
-TEMPLATE_CONTEXT_PROCESSORS = {
-        'django.core.context_processors.i18n',
-}
-
-
 
 SITE_ID = 1
 

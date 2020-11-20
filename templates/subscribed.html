@@ -1,13 +1,30 @@
-{% extends 'base.html' %}
+<!doctype html>
 
-{% block content %}
-<div class="container text-center" id="cod">
-    <div class="row">
-        <div class="col" >
-            <h4>You are already Subscribed</h4>
+{% load static %}
+
+<html lang="en">
+
+    {% include 'head.html' %}
+
+    <body class="js">
+
+        {% include 'preloader.html' %}
+        {% include 'header.html' %}
+        {% include 'slider.html' %}
+
+        {% block content %}
+        <div class="container text-center" id="cod">
+            <div class="row">
+                <div class="col" >
+                    <h4>You are already Subscribed</h4>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-<br>
-<br>
-{% endblock %}
+        {% endblock content %}
+        
+
+        {% include 'footer.html' %}
+        {% include 'scripts.html' %}
+
+    </body>
+</html>

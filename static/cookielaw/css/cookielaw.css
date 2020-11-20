@@ -1,6 +1,3 @@
-{% load i18n %}
-{% load static %}
-
 
 #cookie_main {
     background-color: snow;
@@ -13,7 +10,7 @@
 
 .h5 {
     font-weight: bold;
-}
+} 
 
 
 #CookielawBanner .container {

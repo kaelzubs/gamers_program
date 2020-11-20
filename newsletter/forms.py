@@ -8,7 +8,7 @@ class EmailSignupForm(forms.ModelForm):
         'name': 'email',
         'id': 'email',
         'placeholder': 'Enter your e-mail address',
-        'class': 'newsletter-email form-control ml-2 mr-sm-2'
+        'class': 'newsletter-inner'
     }), label='')
 
     class Meta:

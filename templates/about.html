@@ -1,0 +1,45 @@
+<!doctype html>
+
+{% load static %}
+
+<html lang="en">
+
+    {% include 'head.html' %}
+
+    <body class="js">
+
+        {% include 'preloader.html' %}
+        {% include 'header.html' %}
+        {% include 'slider.html' %}
+
+        {% block content %}
+        <div class='container text-center'>
+            <div class='row'>
+                <div class='col'>
+                    <br>
+                    <h2>What we do at epredictz.com</h2>
+                    <br>
+                    
+                    <p>At epredictz.com, We set a benchmark of making provision of safe and accurate football tips you can trust!.</p>
+                    <p> epredictz.com predictions, tips & analysis are based on algorithms, detailed analysis, betting tips, forms and statistics. We have dedicated experts that are passionate in ensuring you make profits steadily! </p>
+
+                    <p>We are dedicated to ensuring maximum gains and returns for you by providing valued bets on soccer predictions.</p>
+                    <p>We provide you with the most accurate and guaranteed football tips everyday of the week.</p>
+                    <p>We are relentless in our drive to assist many bettors make good use of the tips we provide to guarantee profits.</p>
+                    <p>Our strong presence in Kenya, Tanzania, South Africa, Uganda, Nigeria, Cyprus, Russia, United Kingdom, USA and other European countries makes us the number destination for all things related to soccer forecasts. </p>
+
+                    <p>Our tipsters at epredictz.com offer predictions for over 50 leagues. We are thorough in our work and have the success of our users in mind. We promise to aid you in your bets! </p>
+
+                    <p>Wonder less, we are considered the best at Soccer prediction</p>
+                </div>
+            </div>
+        </div>
+        {% endblock content %}
+        
+        {% include 'newsletter.html' %}
+
+        {% include 'footer.html' %}
+        {% include 'scripts.html' %}
+
+    </body>
+</html>

@@ -28,7 +28,7 @@ SECRET_KEY = '5krp5uw0_5j#t0b#bg8kxre3qx%&l#pjn1j0(_w-qik7!f3obq'
 # DEBUG = True
 # ALLOWED_HOSTS = []
 
-DEBUG = True
+DEBUG = False
 
 if DEBUG is False:
    ALLOWED_HOSTS = [
@@ -87,6 +87,11 @@ TEMPLATES = [
                     'django.template.loaders.app_directories.Loader',
                 ]),
             ],
+            'libraries':{
+                'cookielaw_tags':  'templatetags.cookielaw_tags',
+ 
+            }
+
         },
     },
 ]
@@ -149,7 +154,19 @@ VENV_PATH = os.path.dirname(os.path.join(BASE_DIR))
 
 STATIC_ROOT = os.path.join(VENV_PATH, 'staticfiles')
 
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+	'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
+
+# LOCALE_PATHS = (
+#     ''
+# )
+
+
 SITE_ID = 1
+
+ROBOTS_CACHE_TIMEOUT = 60*60*24
 
 MAILCHIMP_API_KEY = '9e65f2dbcf48085a4994384e087290d8-us5'
 MAILCHIMP_DATA_CENTER = 'us5'
@@ -160,7 +177,7 @@ EMAIL_HOST_USER = 'kaelzubs'
 EMAIL_HOST_PASSWORD = '1Angrywizard-'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-ACCOUNT_EMAIL_SUBJECT_PREFIX = 'Email recieved from epredictz.com'
-DEFAULT_FROM_EMAIL = 'donmart4u@gmail.com'
+ACCOUNT_EMAIL_SUBJECT_PREFIX = 'Email recieved from gameshopa.com'
+DEFAULT_FROM_EMAIL = 'kaelzubs@gmail.com'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

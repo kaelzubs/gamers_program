@@ -1,6 +1,9 @@
 <!doctype html>
 
+{% load i18n %}
 {% load static %}
+{% load cookielaw_tags %}
+
 
 <html lang="en">
 
@@ -20,9 +23,9 @@
         {% include 'popular.html' %}
         {% include 'homelist.html' %}
         {% include 'newsletter.html' %}
-        {% include 'modal.html' %}
         {% include 'footer.html' %}
         {% include 'scripts.html' %}
+        {% cookielaw_banner %}
 
     </body>
 </html>

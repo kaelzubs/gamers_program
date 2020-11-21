@@ -16,18 +16,18 @@
                     {% for qt in trendquery %}
                     <div class="single-product">
                         <div class="product-img">
-                            <a href="{{ qt.tlink }}">
+                            <a href="{{ qt.tlink }}" target="_blank">
                                 <img class="default-img" src="{{ qt.timage }}" alt="#">
                                 <img class="hover-img" src="{{ qt.timage }}" alt="#">
                             </a>
                             <div class="button-head">
                                 <div class="product-action-2">
-                                    <a title="Add to cart" href="{{ qt.tlink }}">Check Out</a>
+                                    <a title="Add to cart" href="{{ qt.tlink }}" target="_blank">Check Out</a>
                                 </div>
                             </div>
                         </div>
                         <div class="product-content">
-                            <h3><a href="{{ qt.tlink }}">{{ qt.ttitle}}</a></h3>
+                            <h3><a href="{{ qt.tlink }}" target="_blank">{{ qt.ttitle}}</a></h3>
                             <div class="product-price">
                                 <span>{{ qt.tprice }}</span>
                             </div>

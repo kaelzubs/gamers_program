@@ -7,12 +7,11 @@
             {% for que in medquery %}
             <div class="col-lg-6 col-md-6 col-12">
                 <div class="single-banner">
-                    <img src="{{ que.timage }}" alt="#">
-                    
+                    <img src="{{ que.rimage }}" alt="#">
                 </div>
                 <div class="content">
-                    <h3>{{ que.ttitle }}</h3>
-                    <a href="{{ que.tlink }}">Shop Now</a>
+                    <h3>{{ que.rtitle }}</h3>
+                    <a href="{{ que.rlink }}" target="_blank">Shop Now</a>
                 </div>
             </div>
             {% endfor %}

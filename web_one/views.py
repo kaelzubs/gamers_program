@@ -4,7 +4,7 @@ from django.db.models.fields import files
 import requests
 from django.shortcuts import render, redirect
 from requests.api import request
-from .models import HomeModel, TrendModel, RelatedModel
+from .models import HomeModel, TrendModel, RelatedModel, Accessories, Nintendo, Xbox, Playstation
 from newsletter.forms import EmailSignupForm
 from .forms import ContactForms
 from django.core.mail import send_mail, get_connection
@@ -21,10 +21,374 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
 import time, ssl
-# import pandas as pd
 
 
+
+
+# def accessories():
+    
+#     # For ignoring SSL certificate errors
+#     ctx = ssl.create_default_context()
+#     ctx.check_hostname = False
+#     ctx.verify_mode = ssl.CERT_NONE
+    
+#     # specify the url
+#     urlpage = 'https://affiliate-program.amazon.com/home/productlinks/search/?category=gamedownloads&keywords=accessories&sortby='
+    
+#     # run firefox webdriver from executable path of your choice
+#     driver = webdriver.Chrome(executable_path='/usr/local/bin/chromedriver')
+
+#     # get web page
+#     driver.get(urlpage)
+    
+#     # login username
+#     email = driver.find_element_by_id("ap_email")
+#     email.clear()
+#     email.send_keys(keys['username'])
+
+#     # login password
+#     password = driver.find_element_by_id("ap_password")
+#     password.clear()
+#     password.send_keys(keys['password'])
+        
+#     # signInSubmit
+#     driver.find_element_by_id("signInSubmit").click()
+    
+#     # execute script to scroll down the page
+#     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);var lenOfPage=document.body.scrollHeight;return lenOfPage;")
+    
+#     # sleep for 30s
+#     time.sleep(120)
+    
+#     title_arr = []
+#     list_title = driver.find_elements(By.TAG_NAME, 'a')
+#     for tit in list_title:
+#         title = tit.get_attribute('title')
+#         href = tit.get_attribute("href")
+#         if 'tag=kaelzubs-20' not in href:
+#             continue
+#         title_arr.append(title)
+    
+    
+#     link_arr = []
+#     list_link = driver.find_elements(By.TAG_NAME, 'a')
+#     for lk in list_link:
+#         link = lk.get_attribute('href')
+#         if 'tag=kaelzubs-20' not in link:
+#             continue
+#         link_arr.append(link)
+    
+#     price_arr = []
+#     list_price = driver.find_elements_by_xpath("//*[@class='ac-product-price']")
+#     for price in list_price:
+#         priz = price.text
+#         price_arr.append(priz)
+    
+    
+
+#     image_arr = []
+#     list_images = driver.find_elements(By.TAG_NAME, 'img')
+#     for img in list_images:
+#         images = img.get_attribute('src')
+#         alt = img.get_attribute('alt')
+#         if 'B0' not in alt:
+#             continue
+#         image_arr.append(images)
             
+    
+#     for imag, titl, prize, linc in zip(image_arr, title_arr, price_arr, link_arr):
+#         if not Accessories.objects.filter(
+#             atitle=titl,
+#             aimage=imag,
+#             aprice=prize,
+#             alink=linc
+#         ):
+#             Accessories.objects.create(
+#                 atitle=titl,
+#                 aimage=imag,
+#                 aprice=prize,
+#                 alink=linc
+#             )
+    
+#     driver.quit()
+   
+# accessories()
+
+
+
+# def nintendo():
+    
+#     # For ignoring SSL certificate errors
+#     ctx = ssl.create_default_context()
+#     ctx.check_hostname = False
+#     ctx.verify_mode = ssl.CERT_NONE
+    
+#     # specify the url
+#     urlpage = 'https://affiliate-program.amazon.com/home/productlinks/search/?category=gamedownloads&keywords=nintendo&sortby='
+    
+#     # run firefox webdriver from executable path of your choice
+#     driver = webdriver.Chrome(executable_path='/usr/local/bin/chromedriver')
+
+#     # get web page
+#     driver.get(urlpage)
+    
+#     # login username
+#     email = driver.find_element_by_id("ap_email")
+#     email.clear()
+#     email.send_keys(keys['username'])
+
+#     # login password
+#     password = driver.find_element_by_id("ap_password")
+#     password.clear()
+#     password.send_keys(keys['password'])
+        
+#     # signInSubmit
+#     driver.find_element_by_id("signInSubmit").click()
+    
+#     # execute script to scroll down the page
+#     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);var lenOfPage=document.body.scrollHeight;return lenOfPage;")
+    
+#     # sleep for 30s
+#     time.sleep(120)
+    
+#     title_arr = []
+#     list_title = driver.find_elements(By.TAG_NAME, 'a')
+#     for tit in list_title:
+#         title = tit.get_attribute('title')
+#         href = tit.get_attribute("href")
+#         if 'tag=kaelzubs-20' not in href:
+#             continue
+#         title_arr.append(title)
+    
+    
+#     link_arr = []
+#     list_link = driver.find_elements(By.TAG_NAME, 'a')
+#     for lk in list_link:
+#         link = lk.get_attribute('href')
+#         if 'tag=kaelzubs-20' not in link:
+#             continue
+#         link_arr.append(link)
+    
+#     price_arr = []
+#     list_price = driver.find_elements_by_xpath("//*[@class='ac-product-price']")
+#     for price in list_price:
+#         priz = price.text
+#         price_arr.append(priz)
+    
+
+#     image_arr = []
+#     list_images = driver.find_elements(By.TAG_NAME, 'img')
+#     for img in list_images:
+#         images = img.get_attribute('src')
+#         alt = img.get_attribute('alt')
+#         if 'B0' not in alt:
+#             continue
+#         image_arr.append(images)
+
+    
+#     for imag, titl, prize, linc in zip(image_arr, title_arr, price_arr, link_arr):
+#         if not Nintendo.objects.filter(
+#             ntitle=titl,
+#             nimage=imag,
+#             nprice=prize,
+#             nlink=linc
+#         ):
+#             Nintendo.objects.create(
+#                 ntitle=titl,
+#                 nimage=imag,
+#                 nprice=prize,
+#                 nlink=linc
+#             )
+    
+#     driver.quit()
+   
+# nintendo()
+
+
+
+
+# def xbox():
+    
+#     # For ignoring SSL certificate errors
+#     ctx = ssl.create_default_context()
+#     ctx.check_hostname = False
+#     ctx.verify_mode = ssl.CERT_NONE
+    
+#     # specify the url
+#     urlpage = 'https://affiliate-program.amazon.com/home/productlinks/search/?category=gamedownloads&keywords=xbox&sortby='
+    
+#     # run firefox webdriver from executable path of your choice
+#     driver = webdriver.Chrome(executable_path='/usr/local/bin/chromedriver')
+
+#     # get web page
+#     driver.get(urlpage)
+    
+#     # login username
+#     email = driver.find_element_by_id("ap_email")
+#     email.clear()
+#     email.send_keys(keys['username'])
+
+#     # login password
+#     password = driver.find_element_by_id("ap_password")
+#     password.clear()
+#     password.send_keys(keys['password'])
+        
+#     # signInSubmit
+#     driver.find_element_by_id("signInSubmit").click()
+    
+#     # execute script to scroll down the page
+#     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);var lenOfPage=document.body.scrollHeight;return lenOfPage;")
+    
+#     # sleep for 30s
+#     time.sleep(120)
+    
+#     title_arr = []
+#     list_title = driver.find_elements(By.TAG_NAME, 'a')
+#     for tit in list_title:
+#         title = tit.get_attribute('title')
+#         href = tit.get_attribute("href")
+#         if 'tag=kaelzubs-20' not in href:
+#             continue
+#         title_arr.append(title)
+    
+    
+#     link_arr = []
+#     list_link = driver.find_elements(By.TAG_NAME, 'a')
+#     for lk in list_link:
+#         link = lk.get_attribute('href')
+#         if 'tag=kaelzubs-20' not in link:
+#             continue
+#         link_arr.append(link)
+    
+#     price_arr = []
+#     list_price = driver.find_elements_by_xpath("//*[@class='ac-product-price']")
+#     for price in list_price:
+#         priz = price.text
+#         price_arr.append(priz)
+    
+    
+#     image_arr = []
+#     list_images = driver.find_elements(By.TAG_NAME, 'img')
+#     for img in list_images:
+#         images = img.get_attribute('src')
+#         alt = img.get_attribute('alt')
+#         if 'B0' not in alt:
+#             continue
+#         image_arr.append(images)
+
+    
+#     for imag, titl, prize, linc in zip(image_arr, title_arr, price_arr, link_arr):
+#         if not Xbox.objects.filter(
+#             xtitle=titl,
+#             ximage=imag,
+#             xprice=prize,
+#             xlink=linc
+#         ):
+#             Xbox.objects.create(
+#                 xtitle=titl,
+#                 ximage=imag,
+#                 xprice=prize,
+#                 xlink=linc
+#             )
+    
+#     driver.quit()
+   
+# xbox()
+
+
+
+# def playstation():
+    
+#     # For ignoring SSL certificate errors
+#     ctx = ssl.create_default_context()
+#     ctx.check_hostname = False
+#     ctx.verify_mode = ssl.CERT_NONE
+    
+#     # specify the url
+#     urlpage = 'https://affiliate-program.amazon.com/home/productlinks/search/?category=gamedownloads&keywords=playstation&sortby='
+    
+#     # run firefox webdriver from executable path of your choice
+#     driver = webdriver.Chrome(executable_path='/usr/local/bin/chromedriver')
+
+#     # get web page
+#     driver.get(urlpage)
+    
+#     # login username
+#     email = driver.find_element_by_id("ap_email")
+#     email.clear()
+#     email.send_keys(keys['username'])
+
+#     # login password
+#     password = driver.find_element_by_id("ap_password")
+#     password.clear()
+#     password.send_keys(keys['password'])
+        
+#     # signInSubmit
+#     driver.find_element_by_id("signInSubmit").click()
+    
+#     # execute script to scroll down the page
+#     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);var lenOfPage=document.body.scrollHeight;return lenOfPage;")
+    
+#     # sleep for 30s
+#     time.sleep(120)
+    
+#     title_arr = []
+#     list_title = driver.find_elements(By.TAG_NAME, 'a')
+#     for tit in list_title:
+#         title = tit.get_attribute('title')
+#         href = tit.get_attribute("href")
+#         if 'tag=kaelzubs-20' not in href:
+#             continue
+#         title_arr.append(title)
+    
+    
+#     link_arr = []
+#     list_link = driver.find_elements(By.TAG_NAME, 'a')
+#     for lk in list_link:
+#         link = lk.get_attribute('href')
+#         if 'tag=kaelzubs-20' not in link:
+#             continue
+#         link_arr.append(link)
+    
+#     price_arr = []
+#     list_price = driver.find_elements_by_xpath("//*[@class='ac-product-price']")
+#     for price in list_price:
+#         priz = price.text
+#         price_arr.append(priz)
+    
+    
+#     image_arr = []
+#     list_images = driver.find_elements(By.TAG_NAME, 'img')
+#     for img in list_images:
+#         images = img.get_attribute('src')
+#         alt = img.get_attribute('alt')
+#         if 'B0' not in alt:
+#             continue
+#         image_arr.append(images)
+
+    
+#     for imag, titl, prize, linc in zip(image_arr, title_arr, price_arr, link_arr):
+#         if not Playstation.objects.filter(
+#             ptitle=titl,
+#             pimage=imag,
+#             pprice=prize,
+#             plink=linc
+#         ):
+#             Playstation.objects.create(
+#                 ptitle=titl,
+#                 pimage=imag,
+#                 pprice=prize,
+#                 plink=linc
+#             )
+    
+#     driver.quit()
+   
+# playstation()
+
+
+
+
+
 
 # def gamelist():
     
@@ -59,13 +423,14 @@ import time, ssl
 #     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);var lenOfPage=document.body.scrollHeight;return lenOfPage;")
     
 #     # sleep for 30s
-#     time.sleep(30)
+#     time.sleep(120)
     
 #     title_arr = []
 #     list_title = driver.find_elements(By.TAG_NAME, 'a')
 #     for tit in list_title:
 #         title = tit.get_attribute('title')
-#         if '[' not in title:
+#         href = tit.get_attribute("href")
+#         if 'tag=kaelzubs-20' not in href:
 #             continue
 #         title_arr.append(title)
     
@@ -89,9 +454,9 @@ import time, ssl
 #     list_images = driver.find_elements(By.TAG_NAME, 'img')
 #     for img in list_images:
 #         images = img.get_attribute('src')
-#         if '.jpg' not in images:
-#             if '91Vk1mS1x3L._SL500_.png' not in images:
-#                 continue
+#         alt = img.get_attribute('alt')
+#         if 'B0' not in alt:
+#             continue
 #         image_arr.append(images)
 
     
@@ -112,6 +477,8 @@ import time, ssl
 #     driver.quit()
    
 # gamelist()
+
+
 
 
 # def gamelistonline():
@@ -147,13 +514,14 @@ import time, ssl
 #     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);var lenOfPage=document.body.scrollHeight;return lenOfPage;")
     
 #     # sleep for 30s
-#     time.sleep(30)
+#     time.sleep(120)
     
 #     title_arr = []
 #     list_title = driver.find_elements(By.TAG_NAME, 'a')
 #     for tit in list_title:
 #         title = tit.get_attribute('title')
-#         if '[' not in title:
+#         href = tit.get_attribute("href")
+#         if 'tag=kaelzubs-20' not in href:
 #             continue
 #         title_arr.append(title)
     
@@ -177,9 +545,9 @@ import time, ssl
 #     list_images = driver.find_elements(By.TAG_NAME, 'img')
 #     for img in list_images:
 #         images = img.get_attribute('src')
-#         if '.jpg' not in images:
-#             if 'A1juC3rz-3L._SL500_.png' not in images:
-#                 continue
+#         alt = img.get_attribute('alt')
+#         if 'B0' not in alt:
+#             continue
 #         image_arr.append(images)
 
     
@@ -200,9 +568,6 @@ import time, ssl
 #     driver.quit()
    
 # gamelistonline()
-
-
-
 
 
 
@@ -245,7 +610,8 @@ import time, ssl
 #     list_title = driver.find_elements(By.TAG_NAME, 'a')
 #     for tit in list_title:
 #         title = tit.get_attribute('title')
-#         if '[' not in title:
+#         href = tit.get_attribute("href")
+#         if 'tag=kaelzubs-20' not in href:
 #             continue
 #         title_arr.append(title)
     
@@ -264,14 +630,14 @@ import time, ssl
 #         priz = price.text
 #         price_arr.append(priz)
     
-    
+        
 #     image_arr = []
 #     list_images = driver.find_elements(By.TAG_NAME, 'img')
 #     for img in list_images:
 #         images = img.get_attribute('src')
-#         if '.jpg' not in images:
-#             if '91Vk1mS1x3L._SL500_.png' not in images:
-#                 continue
+#         alt = img.get_attribute('alt')
+#         if 'B0' not in alt:
+#             continue
 #         image_arr.append(images)
 
     
@@ -295,18 +661,18 @@ import time, ssl
 
 
 
+
 def home_view(request):
     query = HomeModel.objects.all()[4:]
     topquery = HomeModel.objects.all()[:3]
-    medquery = HomeModel.objects.all()[:2]
+    medquery = RelatedModel.objects.all()[:2]
     
     trendquery = TrendModel.objects.all()
     
     salequery = RelatedModel.objects.all()[2:7]
     bestquery = RelatedModel.objects.all()[7:13]
     viewquery = RelatedModel.objects.all()[14:19]
-    
-    
+        
     
     form = EmailSignupForm()
         
@@ -318,25 +684,43 @@ def home_view(request):
         'viewquery': viewquery,
         'salequery': salequery,
         'medquery': medquery,
+            
         'form': form,
     })
 
 
+
 def xbox_view(request):
+    xbxquery = Xbox.objects.all()
     form = EmailSignupForm()
-    return render(request, 'xbox.html', {'form': form})
+    return render(request, 'xbox.html', {
+        'form': form,
+        'xbxquery': xbxquery,
+    })
     
 def playstation_view(request):
+    playquery = Playstation.objects.all()
     form = EmailSignupForm()
-    return render(request, 'playstation.html', {'form': form})
+    return render(request, 'playstation.html', {
+        'form': form,
+        'playquery': playquery,
+    })
     
 def nintendo_view(request):
+    ninquery = Nintendo.objects.all()
     form = EmailSignupForm()
-    return render(request, 'nintendo.html', {'form': form})
+    return render(request, 'nintendo.html', {
+        'form': form,
+        'ninquery': ninquery,
+    })
     
 def accessories_view(request):
+    accquery = Accessories.objects.all()
     form = EmailSignupForm()
-    return render(request, 'accessories.html', {'form': form})
+    return render(request, 'accessories.html', {
+        'form': form,
+        'accquery': accquery,
+    })
     
     
 def about_view(request):

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html lang="zxx">
+	{% include  'head.html' %}
+
+	<body class="js">
+		<!-- Preloader -->
+		{% include 'preloader.html' %}
+		<!-- End Preloader -->
+		<!-- Header -->
+		{% include 'header.html' %}
+		<!--/ End Header -->
+
+		<!-- Breadcrumbs -->
+		<div class="breadcrumbs">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="bread-inner">
+							<ul class="bread-list">
+								<li><a href="{% url 'home' %}">Home<i class="ti-arrow-right"></i></a></li>
+								<li class="active"><a href="{% url 'search' %}">Search Result</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Breadcrumbs -->
+		
+		{% block content %}
+		<!-- Product Style -->
+		<section class="product-area shop-sidebar shop section">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 col-md-8 col-12">
+						<div class="row">
+							{% for search in pagpages %}
+							<div class="col-lg-3 col-md-6 col-12">
+								<div class="single-product">
+									<div class="product-img">
+										<a href="{{ search.link }}" target="_blank">
+											<img class="default-img" src="{{ search.image }}" alt="#">
+											<img class="hover-img" src="{{ search.image }}" alt="#">
+										</a>
+										<div class="button-head">
+											<div class="product-action-2">
+												<a title="Add to cart" href="{{ search.link }}" target="_blank">Check Out</a>
+											</div>
+										</div>
+									</div>
+									<div class="product-content">
+										<h3><a href="{{ search.link }}" target="_blank">{{ search.title }}</a></h3>
+										<div class="product-price">
+											<span>{{ search.price }}</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--/ End Product Style 1  -->
+		{% endblock %}
+		<div class="breadcrumbs">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="bread-inner">
+							<nav aria-label="Page navigation conatiner">
+								<ul class="pagination justify-content-center text-center mb-5">
+									{% if pagpages.has_previous %}
+									<li>
+										<a href="?page={{ pagpages.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" class="page-link">&laquo; PREV </a>
+									</li>
+									{% endif %}
+									<span class="current">
+										Page {{ pagpages.number }} of {{ pagpages.paginator.num_pages }}.
+									</span>
+									{% if pagpages.has_next %}
+									<li>
+										<a href="?page={{ pagpages.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" class="page-link"> NEXT &raquo;</a>
+									</li>
+									{% endif %}
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+
+		<!-- Start Shop Newsletter  -->
+		
+		{% include 'newsletter.html' %}
+		<!-- End Shop Newsletter -->		
+		<!-- Modal -->
+		{% include 'modal.html' %}
+		<!-- Modal end -->
+		<!-- Start Footer Area -->
+		{% include 'footer.html' %}
+		<!-- /End Footer Area -->
+		<!-- Jquery -->
+		{% include 'scripts.html' %}
+	</body>
+</html>

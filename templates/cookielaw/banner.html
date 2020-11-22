@@ -5,12 +5,13 @@
 <div id="CookielawBanner">
     <div class="container">
         <div>
-            <h6 class="h5 mt-2">{% trans 'COOKIE_INFO_HEADER' %}<a href="javascript:Cookielaw.createCookielawCookie();" class="close btn mr-2">&times;</a></h6>
+            <h6 class="h5 mt-2">CookieLaw Policy<a href="javascript:Cookielaw.createCookielawCookie();" class="close btn mr-2">&times;</a></h6>
         </div>
         <p>
-            {% trans "COOKIE_INFO_PARA" %}
+            Our site saves small pieces of text information (cookies) on your device in order to deliver better content and for
+            statistical purposes. You can disable the usage of cookies by changing the settings of your browser. By browsing our
+            website without changing the browser settings you grant us permission to store that information on your device.
         </p>
-        <a class="btn pull-left mb-4" href="{% url 'cookie-list' %}">How to configure</a>
-        <a class="btn pull-right mb-4 mr-2" href="javascript:Cookielaw.createCookielawCookie();">{% trans "COOKIE_INFO_OK" %}</a>
+        <a class="btn pull-right mb-2" href="{% url 'cookie-list' %}">How to configure</a>
     </div>
 </div>

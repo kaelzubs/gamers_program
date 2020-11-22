@@ -674,7 +674,7 @@ def home_view(request):
     bestquery = RelatedModel.objects.all()[7:13]
     viewquery = RelatedModel.objects.all()[14:19]
     
-    paginator = Paginator(query, 40)
+    paginator = Paginator(query, 36)
     page = request.GET.get('page')
     try:
         pagpages = paginator.page(page)
@@ -702,7 +702,7 @@ def home_view(request):
 
 def xbox_view(request):
     xbxquery = Xbox.objects.all()
-    paginator = Paginator(xbxquery, 40)
+    paginator = Paginator(xbxquery, 36)
     page = request.GET.get('page')
     try:
         pagpages = paginator.page(page)
@@ -719,7 +719,7 @@ def xbox_view(request):
     
 def playstation_view(request):
     playquery = Playstation.objects.all()
-    paginator = Paginator(playquery, 40)
+    paginator = Paginator(playquery, 36)
     page = request.GET.get('page')
     try:
         pagpages = paginator.page(page)
@@ -736,7 +736,7 @@ def playstation_view(request):
     
 def nintendo_view(request):
     ninquery = Nintendo.objects.all()
-    paginator = Paginator(ninquery, 40)
+    paginator = Paginator(ninquery, 36)
     page = request.GET.get('page')
     try:
         pagpages = paginator.page(page)
@@ -753,7 +753,7 @@ def nintendo_view(request):
     
 def accessories_view(request):
     accquery = Accessories.objects.all()
-    paginator = Paginator(accquery, 40)
+    paginator = Paginator(accquery, 36)
     page = request.GET.get('page')
     try:
         pagpages = paginator.page(page)

@@ -1,5 +1,4 @@
-{% load i18n %}
-{% load static %}
+{% load i18n static %}
 
 
 
@@ -9,9 +8,10 @@
             <h6 class="h5 mt-2">CookieLaw Policy<a href="javascript:Cookielaw.createCookielawCookie();" class="close btn mr-2">&times;</a></h6>
         </div>
         <p>
-            We use cookies to improve your experience on the website. Some cookies are required to ensure that the site functions correctly, for this reason we may have already set some cookies. Other cookies gather anonymous data about how you are using the website, however these will only be set if you give your consent.
+            Our site saves small pieces of text information (cookies) on your device in order to deliver better content and for
+            statistical purposes. You can disable the usage of cookies by changing the settings of your browser. By browsing our
+            website without changing the browser settings you grant us permission to store that information on your device.
         </p>
-        <a class="btn pull-left mb-4" href="{% url 'cookie-list' %}">How to configure</a>
-        <a class="btn pull-right mb-4 mr-2" href="javascript:Cookielaw.createCookielawCookie();">Accept Cookie</a>
+        <a class="btn pull-right mb-2" href="{% url 'cookie-list' %}">How to configure</a>
     </div>
 </div>

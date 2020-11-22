@@ -11,6 +11,7 @@ from django.core.mail import send_mail, get_connection
 from django.contrib import sitemaps
 from django.urls import reverse
 from django.db.models import Q
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from .secretKey.config import keys
 # import libraries
@@ -672,12 +673,21 @@ def home_view(request):
     salequery = RelatedModel.objects.all()[2:7]
     bestquery = RelatedModel.objects.all()[7:13]
     viewquery = RelatedModel.objects.all()[14:19]
+    
+    paginator = Paginator(query, 40)
+    page = request.GET.get('page')
+    try:
+        pagpages = paginator.page(page)
+    except PageNotAnInteger:
+        pagpages = paginator.page(1)
+    except EmptyPage:
+        pagpages = paginator.page(paginator.num_pages)
         
     
     form = EmailSignupForm()
         
     return render(request, 'base.html', {
-        'query': query,
+        'pagpages': pagpages,
         'topquery': topquery,
         'bestquery': bestquery,
         'trendquery': trendquery,
@@ -692,33 +702,69 @@ def home_view(request):
 
 def xbox_view(request):
     xbxquery = Xbox.objects.all()
+    paginator = Paginator(xbxquery, 40)
+    page = request.GET.get('page')
+    try:
+        pagpages = paginator.page(page)
+    except PageNotAnInteger:
+        pagpages = paginator.page(1)
+    except EmptyPage:
+        pagpages = paginator.page(paginator.num_pages)
     form = EmailSignupForm()
     return render(request, 'xbox.html', {
         'form': form,
+        'pagpages': pagpages,
         'xbxquery': xbxquery,
     })
     
 def playstation_view(request):
     playquery = Playstation.objects.all()
+    paginator = Paginator(playquery, 40)
+    page = request.GET.get('page')
+    try:
+        pagpages = paginator.page(page)
+    except PageNotAnInteger:
+        pagpages = paginator.page(1)
+    except EmptyPage:
+        pagpages = paginator.page(paginator.num_pages)
     form = EmailSignupForm()
     return render(request, 'playstation.html', {
         'form': form,
+        'pagpages': pagpages,
         'playquery': playquery,
     })
     
 def nintendo_view(request):
     ninquery = Nintendo.objects.all()
+    paginator = Paginator(ninquery, 40)
+    page = request.GET.get('page')
+    try:
+        pagpages = paginator.page(page)
+    except PageNotAnInteger:
+        pagpages = paginator.page(1)
+    except EmptyPage:
+        pagpages = paginator.page(paginator.num_pages)
     form = EmailSignupForm()
     return render(request, 'nintendo.html', {
         'form': form,
+        'pagpages': pagpages,
         'ninquery': ninquery,
     })
     
 def accessories_view(request):
     accquery = Accessories.objects.all()
+    paginator = Paginator(accquery, 40)
+    page = request.GET.get('page')
+    try:
+        pagpages = paginator.page(page)
+    except PageNotAnInteger:
+        pagpages = paginator.page(1)
+    except EmptyPage:
+        pagpages = paginator.page(paginator.num_pages)
     form = EmailSignupForm()
     return render(request, 'accessories.html', {
         'form': form,
+        'pagpages': pagpages,
         'accquery': accquery,
     })
     
@@ -765,7 +811,28 @@ def disclaimer_view(request):
     form = EmailSignupForm()
     return render(request, 'disclaimer.html', {'form': form})
 
+def search_view(request):
+    searchpages = HomeModel.objects.all()
+    paginator = Paginator(searchpages, 28)
+    page = request.GET.get('page')
+    try:
+        pagpages = paginator.page(page)
+    except PageNotAnInteger:
+        pagpages = paginator.page(1)
+    except EmptyPage:
+        pagpages = paginator.page(paginator.num_pages)
+    query = request.GET.get('q')
+    if query:
+        pagpages = HomeModel.objects.filter(
+            Q(title__icontains=query) |
+            Q(image__icontains=query) |
+            Q(price__icontains=query) |
+            Q(link__icontains=query)
+        ).distinct()
+        
+    form = EmailSignupForm()
 
+    return render(request, 'search.html', {'form': form, 'pagpages': pagpages})
 
 def handler404(request, exception, template_name="error_404.html"):
     return render(request, template_name, status=404)

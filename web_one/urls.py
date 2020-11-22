@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import StaticViewSitemap
+from .views import StaticViewSitemap, search_view
 from django.contrib.sitemaps.views import sitemap
 
 
@@ -13,6 +13,7 @@ sitemaps = {
 
 urlpatterns = [
     path('', views.home_view, name='home'),
+    path('search/', views.search_view, name='search'),
     path('xbox/', views.xbox_view, name='xbox'),
     path('playstation/', views.playstation_view, name='playstation'),
     path('nitendo/', views.nintendo_view, name='nintendo'),

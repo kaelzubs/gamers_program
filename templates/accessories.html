@@ -37,7 +37,7 @@
 				<div class="row">
 					<div class="col-lg-12 col-md-8 col-12">
 						<div class="row">
-							{% for acc in accquery %}
+							{% for acc in pagpages %}
 							<div class="col-lg-3 col-md-6 col-12">
 								<div class="single-product">
 									<div class="product-img">
@@ -66,7 +66,34 @@
 			</div>
 		</section>
 		<!--/ End Product Style 1  -->
-		{% endblock %}	
+		{% endblock %}
+		<div class="breadcrumbs">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="bread-inner">
+							<nav aria-label="Page navigation conatiner">
+								<ul class="pagination justify-content-center text-center mb-5">
+									{% if pagpages.has_previous %}
+									<li>
+										<a href="?page={{ pagpages.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" class="page-link">&laquo; PREV </a>
+									</li>
+									{% endif %}
+									<span class="current">
+										Page {{ pagpages.number }} of {{ pagpages.paginator.num_pages }}.
+									</span>
+									{% if pagpages.has_next %}
+									<li>
+										<a href="?page={{ pagpages.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" class="page-link"> NEXT &raquo;</a>
+									</li>
+									{% endif %}
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
 
 		<!-- Start Shop Newsletter  -->
 		

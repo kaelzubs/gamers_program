@@ -72,6 +72,12 @@ class Playstation(models.Model):
     def __str__(self):
         return self.ptitle
 
+class Search(models.Model):
+    stitle = models.CharField(max_length=120)
+    simage = models.ImageField()
+    sprice = models.CharField(max_length=50)
+    slink = models.URLField()
+
 
 class ContactModel(models.Model):
     name = models.CharField(max_length=60)

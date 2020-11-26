@@ -4,7 +4,7 @@ from django.db.models.fields import files
 import requests
 from django.shortcuts import render, redirect
 from requests.api import request
-from .models import HomeModel, TrendModel, RelatedModel, Accessories, Nintendo, Xbox, Playstation
+from .models import HomeModel, TrendModel, RelatedModel, Accessories, Nintendo, Xbox, Playstation, Search
 from newsletter.forms import EmailSignupForm
 from .forms import ContactForms
 from django.core.mail import send_mail, get_connection
@@ -12,7 +12,6 @@ from django.contrib import sitemaps
 from django.urls import reverse
 from django.db.models import Q
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
 from .secretKey.config import keys
 # import libraries
 from bs4 import BeautifulSoup
@@ -24,6 +23,109 @@ from selenium.common.exceptions import TimeoutException
 import time, ssl
 
 
+
+# def search():
+    
+#     # For ignoring SSL certificate errors
+#     ctx = ssl.create_default_context()
+#     ctx.check_hostname = False
+#     ctx.verify_mode = ssl.CERT_NONE
+    
+#     # specify the url
+#     # accessories
+#     # urlpage = 'https://affiliate-program.amazon.com/home/productlinks/search/?category=gamedownloads&keywords=accessories&sortby='
+#     # game list trend
+#     # urlpage = 'https://affiliate-program.amazon.com/home/productlinks/search/?category=videogames&subcategory=19497043011&keywords=&sortby='
+#     # game list online
+#     # urlpage = 'https://affiliate-program.amazon.com/home/productlinks/search/?category=gamedownloads&subcategory=17596052011&keywords=sale&sortby='
+#     # game list 
+#     # urlpage = 'https://affiliate-program.amazon.com/home/productlinks/search?ac-ms-src=ac-nav&category=gamedownloads&keywords=&sortby=&subcategory=20972781011'
+#     # playstation 
+#     # urlpage = 'https://affiliate-program.amazon.com/home/productlinks/search/?category=gamedownloads&keywords=playstation&sortby='
+#     # xbox
+#     # urlpage = 'https://affiliate-program.amazon.com/home/productlinks/search/?category=gamedownloads&keywords=xbox&sortby='
+#     # nintendo
+#     urlpage = 'https://affiliate-program.amazon.com/home/productlinks/search/?category=gamedownloads&keywords=nintendo&sortby='
+
+    
+#     # run firefox webdriver from executable path of your choice
+#     driver = webdriver.Chrome(executable_path='/usr/local/bin/chromedriver')
+
+#     # get web page
+#     driver.get(urlpage)
+    
+#     # login username
+#     email = driver.find_element_by_id("ap_email")
+#     email.clear()
+#     email.send_keys(keys['username'])
+
+#     # login password
+#     password = driver.find_element_by_id("ap_password")
+#     password.clear()
+#     password.send_keys(keys['password'])
+        
+#     # signInSubmit
+#     driver.find_element_by_id("signInSubmit").click()
+    
+#     # execute script to scroll down the page
+#     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);var lenOfPage=document.body.scrollHeight;return lenOfPage;")
+    
+#     # sleep for 30s
+#     time.sleep(300)
+    
+#     title_arr = []
+#     list_title = driver.find_elements(By.TAG_NAME, 'a')
+#     for tit in list_title:
+#         title = tit.get_attribute('title')
+#         href = tit.get_attribute("href")
+#         if 'tag=kaelzubs-20' not in href:
+#             continue
+#         title_arr.append(title)
+    
+    
+#     link_arr = []
+#     list_link = driver.find_elements(By.TAG_NAME, 'a')
+#     for lk in list_link:
+#         link = lk.get_attribute('href')
+#         if 'tag=kaelzubs-20' not in link:
+#             continue
+#         link_arr.append(link)
+    
+#     price_arr = []
+#     list_price = driver.find_elements_by_xpath("//*[@class='ac-product-price']")
+#     for price in list_price:
+#         priz = price.text
+#         price_arr.append(priz)
+    
+    
+
+#     image_arr = []
+#     list_images = driver.find_elements(By.TAG_NAME, 'img')
+#     for img in list_images:
+#         images = img.get_attribute('src')
+#         alt = img.get_attribute('alt')
+#         if 'B0' not in alt:
+#             continue
+#         image_arr.append(images)
+            
+    
+#     for imag, titl, prize, linc in zip(image_arr, title_arr, price_arr, link_arr):
+#         if not Search.objects.filter(
+#             stitle=titl,
+#             simage=imag,
+#             sprice=prize,
+#             slink=linc
+#         ):
+#             Search.objects.create(
+#                 stitle=titl,
+#                 simage=imag,
+#                 sprice=prize,
+#                 slink=linc
+#             )
+    
+#     driver.quit()
+   
+# search()
 
 
 # def accessories():
@@ -674,7 +776,7 @@ def home_view(request):
     bestquery = RelatedModel.objects.all()[7:13]
     viewquery = RelatedModel.objects.all()[14:19]
     
-    paginator = Paginator(query, 36)
+    paginator = Paginator(query, 20)
     page = request.GET.get('page')
     try:
         pagpages = paginator.page(page)
@@ -700,9 +802,11 @@ def home_view(request):
 
 
 
-def xbox_view(request, page):
+def xbox_view(request):
     xbxquery = Xbox.objects.all()
-    paginator = Paginator(xbxquery, 36)
+    paginator = Paginator(xbxquery, 20)
+    page = request.GET.get('page')
+
     try:
         pagpages = paginator.page(page)
     except PageNotAnInteger:
@@ -716,9 +820,11 @@ def xbox_view(request, page):
         'xbxquery': xbxquery,
     })
     
-def playstation_view(request, page):
+def playstation_view(request):
     playquery = Playstation.objects.all()
-    paginator = Paginator(playquery, 36)
+    paginator = Paginator(playquery, 20)
+    page = request.GET.get('page')
+
     try:
         pagpages = paginator.page(page)
     except PageNotAnInteger:
@@ -732,9 +838,11 @@ def playstation_view(request, page):
         'playquery': playquery,
     })
     
-def nintendo_view(request, page):
+def nintendo_view(request):
     ninquery = Nintendo.objects.all()
-    paginator = Paginator(ninquery, 36)
+    paginator = Paginator(ninquery, 20)
+    page = request.GET.get('page')
+
     try:
         pagpages = paginator.page(page)
     except PageNotAnInteger:
@@ -748,9 +856,11 @@ def nintendo_view(request, page):
         'ninquery': ninquery,
     })
     
-def accessories_view(request, page):
+def accessories_view(request):
     accquery = Accessories.objects.all()
-    paginator = Paginator(accquery, 36)
+    paginator = Paginator(accquery, 20)
+    page = request.GET.get('page')
+
     try:
         pagpages = paginator.page(page)
     except PageNotAnInteger:
@@ -807,9 +917,11 @@ def disclaimer_view(request):
     form = EmailSignupForm()
     return render(request, 'disclaimer.html', {'form': form})
 
-def search_view(request, page):
-    searchpages = HomeModel.objects.all()
-    paginator = Paginator(searchpages, 28)
+def search_view(request):
+    searchpages = Search.objects.all()
+    paginator = Paginator(searchpages, 20)
+    page = request.GET.get('page')
+
     try:
         pagpages = paginator.page(page)
     except PageNotAnInteger:
@@ -818,11 +930,11 @@ def search_view(request, page):
         pagpages = paginator.page(paginator.num_pages)
     query = request.GET.get('q')
     if query:
-        pagpages = HomeModel.objects.filter(
-            Q(title__icontains=query) |
-            Q(image__icontains=query) |
-            Q(price__icontains=query) |
-            Q(link__icontains=query)
+        pagpages = Search.objects.filter(
+            Q(stitle__icontains=query) |
+            Q(simage__icontains=query) |
+            Q(sprice__icontains=query) |
+            Q(slink__icontains=query)
         ).distinct()
         
     form = EmailSignupForm()

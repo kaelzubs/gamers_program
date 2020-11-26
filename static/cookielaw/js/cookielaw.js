@@ -20,7 +20,7 @@ var Cookielaw = {
             jQuery('#CookielawBanner').slideUp();
         } else {
             document.getElementById('CookielawBanner').style.display = 'none';
-            jQuery('#CookielawBanner').hide();
+            
         }
     }
 

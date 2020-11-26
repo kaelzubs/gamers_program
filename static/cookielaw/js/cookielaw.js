@@ -19,7 +19,8 @@ var Cookielaw = {
         if (typeof(window.jQuery) === 'function') {
             jQuery('#CookielawBanner').slideUp();
         } else {
-            document.getElementById('CookielawBanner').style.display = 'none';
+            // document.getElementById('CookielawBanner').style.display = 'none';
+            jQuery('#CookielawBanner').hidden()
         }
     }
 

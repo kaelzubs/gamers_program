@@ -700,10 +700,9 @@ def home_view(request):
 
 
 
-def xbox_view(request):
+def xbox_view(request, page):
     xbxquery = Xbox.objects.all()
     paginator = Paginator(xbxquery, 36)
-    page = request.GET.get('page')
     try:
         pagpages = paginator.page(page)
     except PageNotAnInteger:
@@ -717,10 +716,9 @@ def xbox_view(request):
         'xbxquery': xbxquery,
     })
     
-def playstation_view(request):
+def playstation_view(request, page):
     playquery = Playstation.objects.all()
     paginator = Paginator(playquery, 36)
-    page = request.GET.get('page')
     try:
         pagpages = paginator.page(page)
     except PageNotAnInteger:
@@ -734,10 +732,9 @@ def playstation_view(request):
         'playquery': playquery,
     })
     
-def nintendo_view(request):
+def nintendo_view(request, page):
     ninquery = Nintendo.objects.all()
     paginator = Paginator(ninquery, 36)
-    page = request.GET.get('page')
     try:
         pagpages = paginator.page(page)
     except PageNotAnInteger:
@@ -751,10 +748,9 @@ def nintendo_view(request):
         'ninquery': ninquery,
     })
     
-def accessories_view(request):
+def accessories_view(request, page):
     accquery = Accessories.objects.all()
     paginator = Paginator(accquery, 36)
-    page = request.GET.get('page')
     try:
         pagpages = paginator.page(page)
     except PageNotAnInteger:
@@ -811,10 +807,9 @@ def disclaimer_view(request):
     form = EmailSignupForm()
     return render(request, 'disclaimer.html', {'form': form})
 
-def search_view(request):
+def search_view(request, page):
     searchpages = HomeModel.objects.all()
     paginator = Paginator(searchpages, 28)
-    page = request.GET.get('page')
     try:
         pagpages = paginator.page(page)
     except PageNotAnInteger:

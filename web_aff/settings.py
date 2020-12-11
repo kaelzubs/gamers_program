@@ -182,4 +182,5 @@ ROBOTS_USE_SCHEME_IN_HOST = True
 ROBOTS_USE_SITEMAP = False
 ROBOTS_CACHE_TIMEOUT = 60*60*24
 ROBOTS_SITEMAP_URL = 'http://www.gameshopa.com/sitemap.xml'
+ROBOTS_ALLOW_HOST = "gameshopa.com"
 

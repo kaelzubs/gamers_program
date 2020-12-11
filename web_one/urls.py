@@ -13,11 +13,11 @@ sitemaps = {
 
 urlpatterns = [
     path('', views.home_view, name='home'),
-    path('search/', views.search_view, name='search'),
     path('xbox/', views.xbox_view, name='xbox'),
     path('playstation/', views.playstation_view, name='playstation'),
     path('nitendo/', views.nintendo_view, name='nintendo'),
     path('accessories/', views.accessories_view, name='accessories'),
+    path('search/', views.search_view, name='search'),
     path('about/', views.about_view, name='about'),
     path('contact/', views.contact_view, name='contact'),
     path('contact_success/', views.contact_success, name='contact_success'),

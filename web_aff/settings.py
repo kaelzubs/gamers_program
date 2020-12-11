@@ -161,7 +161,6 @@ STATICFILES_FINDERS = (
 
 SITE_ID = 1
 
-ROBOTS_CACHE_TIMEOUT = 60*60*24
 
 MAILCHIMP_API_KEY = '9e65f2dbcf48085a4994384e087290d8-us5'
 MAILCHIMP_DATA_CENTER = 'us5'
@@ -176,3 +175,8 @@ ACCOUNT_EMAIL_SUBJECT_PREFIX = 'Email recieved from gameshopa.com'
 DEFAULT_FROM_EMAIL = 'kaelzubs@gmail.com'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+
+ROBOTS_USE_SITEMAP = False
+ROBOTS_CACHE_TIMEOUT = 60*60*24
+ROBOTS_SITEMAP_URL = 'http://www.gameshopa.com/sitemap.xml'

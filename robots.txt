@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Host: gameshopa.com
+Host: https://www.gameshopa.com

@@ -181,7 +181,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 ROBOTS_USE_SCHEME_IN_HOST = True
 ROBOTS_USE_SITEMAP = False
 ROBOTS_CACHE_TIMEOUT = 60*60*24
-ROBOTS_SITEMAP_URL = 'http://www.gameshopa.com/sitemap.xml'
+ROBOTS_SITEMAP_URL = 'http://gameshopa.com/sitemap.xml'
 ROBOTS_USE_HOST = False
 
 ROBOTS_SITEMAP_VIEW_NAME = 'cached-sitemap'

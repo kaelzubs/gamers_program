@@ -774,7 +774,7 @@ def home_view(request):
     trendquery = TrendModel.objects.all()
     
     salequery = RelatedModel.objects.all()[2:7]
-    bestquery = RelatedModel.objects.all()[7:13]
+    bestquery = RelatedModel.objects.all()[7:12]
     viewquery = RelatedModel.objects.all()[14:19]
     
     paginator = Paginator(query, 16)

@@ -45,7 +45,7 @@ import time, ssl
 #     # xbox
 #     # urlpage = 'https://affiliate-program.amazon.com/home/productlinks/search/?category=gamedownloads&keywords=xbox&sortby='
 #     # nintendo
-#     urlpage = 'https://affiliate-program.amazon.com/home/productlinks/search/?category=gamedownloads&keywords=nintendo&sortby='
+#     # urlpage = 'https://affiliate-program.amazon.com/home/productlinks/search/?category=gamedownloads&keywords=nintendo&sortby='
 
     
 #     # run firefox webdriver from executable path of your choice
@@ -104,7 +104,7 @@ import time, ssl
 #     for img in list_images:
 #         images = img.get_attribute('src')
 #         alt = img.get_attribute('alt')
-#         if 'B0' not in alt:
+#         if '/images/I/' not in images:
 #             continue
 #         image_arr.append(images)
             
@@ -126,6 +126,7 @@ import time, ssl
 #     driver.quit()
    
 # search()
+
 
 
 # def accessories():
@@ -776,7 +777,7 @@ def home_view(request):
     bestquery = RelatedModel.objects.all()[7:13]
     viewquery = RelatedModel.objects.all()[14:19]
     
-    paginator = Paginator(query, 20)
+    paginator = Paginator(query, 16)
     page = request.GET.get('page')
     try:
         pagpages = paginator.page(page)
@@ -804,7 +805,7 @@ def home_view(request):
 
 def xbox_view(request):
     xbxquery = Xbox.objects.all()
-    paginator = Paginator(xbxquery, 20)
+    paginator = Paginator(xbxquery, 16)
     page = request.GET.get('page')
 
     try:
@@ -822,7 +823,7 @@ def xbox_view(request):
     
 def playstation_view(request):
     playquery = Playstation.objects.all()
-    paginator = Paginator(playquery, 20)
+    paginator = Paginator(playquery, 16)
     page = request.GET.get('page')
 
     try:
@@ -840,7 +841,7 @@ def playstation_view(request):
     
 def nintendo_view(request):
     ninquery = Nintendo.objects.all()
-    paginator = Paginator(ninquery, 20)
+    paginator = Paginator(ninquery, 16)
     page = request.GET.get('page')
 
     try:
@@ -858,7 +859,7 @@ def nintendo_view(request):
     
 def accessories_view(request):
     accquery = Accessories.objects.all()
-    paginator = Paginator(accquery, 20)
+    paginator = Paginator(accquery, 16)
     page = request.GET.get('page')
 
     try:
@@ -919,7 +920,7 @@ def disclaimer_view(request):
 
 def search_view(request):
     searchpages = Search.objects.all()
-    paginator = Paginator(searchpages, 20)
+    paginator = Paginator(searchpages, 16)
     page = request.GET.get('page')
 
     try:

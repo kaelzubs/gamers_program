@@ -4853,7 +4853,9 @@ Version:1.0
 .footer .about .logo{
 	margin-bottom:20px;
 }
-.footer .about .logo img{}
+.footer .about .logo img{
+	width: 150px;
+}
 .footer .about .text{
 	color:#fff;
 	font-weight: 400;
